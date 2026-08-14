@@ -266,103 +266,102 @@ header.stuck{border-bottom-color:var(--line)}
   opacity:0;animation:fadeUp .8s .58s cubic-bezier(.16,1,.3,1) forwards;
 }
 
-/* ---------- the phone --------------------------------------------------- */
+/* ---------- the phone ----------------------------------------------------
+   A flat rounded rectangle with a notch reads as an icon, not a photograph.
+   What sells "real phone" is the thing product photography always has: a
+   camera with actual depth (perspective + a held rotation), a bezel that
+   catches light on one edge and falls into shadow on the other, glass glare
+   crossing the screen at an angle, and a shadow that stays on the ground
+   plane instead of tilting along with the device. */
 .stage{
   position:relative;margin-top:clamp(46px,6vw,78px);
   display:flex;justify-content:center;align-items:flex-start;
   padding-bottom:clamp(40px,6vw,72px);
+  perspective:1800px;perspective-origin:50% 28%;
+}
+:root{
+  /* Shared so the resting pose and the reduced-motion fallback can't drift
+     apart into two different tilts. */
+  --tilt:rotateY(-15deg) rotateX(6deg) rotateZ(1.6deg);
 }
 .phone{
   position:relative;z-index:2;width:min(332px,80vw);flex:none;
-  border-radius:42px;padding:11px;
-  background:linear-gradient(160deg,#33333a,#141417 42%,#2b2b31);
-  box-shadow:0 44px 90px -22px rgba(0,0,0,.9),0 0 0 1px rgba(232,230,225,.07);
-  opacity:0;animation:phoneIn 1.1s .3s cubic-bezier(.16,1,.3,1) forwards;
+  /* Thin, uniform bezel — the iPhone 15's edge is a few points on every side,
+     not the thick frame a generic phone illustration uses. */
+  border-radius:46px;padding:7px;
+  transform:var(--tilt);transform-origin:50% 50%;
+  /* Three metal tones instead of one: a lit facet along the top-left edge,
+     the body colour through the middle, a darker facet bottom-right — the
+     same trick a rendered product shot uses to read as a bevelled edge. */
+  background:
+    linear-gradient(155deg,#48484f 0%,#313138 16%,#1a1a1e 46%,#242429 74%,#3a3a41 100%);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.09) inset,          /* top rim catching light */
+    0 -1.5px 0 rgba(0,0,0,.5) inset,               /* bottom rim in shadow */
+    0 0 0 1px rgba(0,0,0,.6),
+    0 30px 60px -18px rgba(0,0,0,.75),             /* close contact shadow */
+    0 70px 120px -30px rgba(0,0,0,.6);             /* long cast shadow */
+  opacity:0;animation:phoneIn 1.15s .3s cubic-bezier(.16,1,.3,1) forwards;
 }
-@keyframes phoneIn{from{opacity:0;transform:translateY(46px) scale(.97)}to{opacity:1;transform:none}}
-.screen{position:relative;border-radius:32px;overflow:hidden;background:var(--bg);padding:14px 13px 8px}
-.notch{
-  position:absolute;top:9px;left:50%;transform:translateX(-50%);
-  width:96px;height:22px;border-radius:100px;background:#000;z-index:3;
+@keyframes phoneIn{
+  from{opacity:0;transform:var(--tilt) translateY(50px) scale(.96)}
+  to{opacity:1;transform:var(--tilt)}
 }
-.statusbar{
-  display:flex;justify-content:space-between;align-items:center;
-  font:500 10.5px/1 var(--mono);color:var(--dim);margin-bottom:16px;padding:0 4px;
-}
-.statusbar .bars{display:flex;gap:2.5px;align-items:flex-end}
-.statusbar .bars i{width:2.5px;background:var(--dim);border-radius:1px;display:block}
+/* The contact shadow lives on the ground plane, not on the phone, so it does
+   not rotate into the same perspective — a real dropped shadow stays flat
+   under a tilted object instead of tilting with it.
 
-.ph-hdr{display:flex;align-items:baseline;justify-content:space-between;margin:0 2px 13px}
-.ph-hdr h4{font-size:12px;letter-spacing:.04em}
-.ph-hdr .date{font:400 10.5px/1 var(--mono);color:var(--dim)}
+   A pure-black shadow is invisible against a background that is already
+   near-black — there's nothing darker to fall to. So this is two layers: a
+   faint lightened halo standing in for a lit floor, with the shadow itself
+   pooling inside that halo. The darkening only reads because the ground
+   around it was lightened first. */
+.phone-shadow{
+  position:absolute;left:50%;bottom:clamp(24px,5vw,50px);
+  width:min(340px,76vw);height:80px;transform:translateX(-50%);
+  background:
+    radial-gradient(ellipse 46% 100% at center,rgba(0,0,0,.65),transparent 72%),
+    radial-gradient(ellipse 88% 100% at center,rgba(232,230,225,.05),transparent 76%);
+  filter:blur(9px);z-index:1;opacity:0;
+  animation:shadowIn 1.15s .5s cubic-bezier(.16,1,.3,1) forwards;
+}
+/* The thin bright line a real surface throws right where a glossy object
+   touches it — the detail that reads as "resting on something" rather than
+   "shadow floating near something". */
+.phone-shadow::after{
+  content:"";position:absolute;left:14%;right:14%;top:2px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,230,225,.22),transparent);
+}
+@keyframes shadowIn{from{opacity:0;transform:translateX(-50%) scaleX(.7)}to{opacity:1;transform:translateX(-50%) scaleX(1)}}
 
-.plates{display:flex;gap:4px;justify-content:space-between;margin:0 2px 14px}
-.plate{
-  flex:1;aspect-ratio:1;max-width:34px;border-radius:50%;
-  display:grid;place-items:center;position:relative;
-  font:700 10px/1 var(--mono);color:var(--bg);opacity:.34;
-  box-shadow:inset 0 0 0 3px rgba(0,0,0,.28),inset 0 0 0 8px rgba(255,255,255,.06);
+/* The screen. Aspect ratio is the iPhone 15's real 393 x 852 pt, so the
+   screenshot sits in it at exactly the proportions it was captured at —
+   any other ratio would letterbox or crop the app's own layout. */
+.screen{
+  position:relative;border-radius:34px;overflow:hidden;background:#000;
+  aspect-ratio:393/852;
 }
-.plate.done{opacity:.85}
-.plate.cur{opacity:1}
-.plate.cur::after{
-  content:"";position:absolute;inset:-5px;border-radius:50%;
-  border:2px solid rgba(255,255,255,.55);animation:ringPulse 1.7s ease-out infinite;
+.app-shot{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:top center;
 }
-@keyframes ringPulse{0%{transform:scale(.8);opacity:.9}75%,100%{transform:scale(1.3);opacity:0}}
-.plate.rest{
-  background:var(--card2);color:var(--dim);opacity:1;
-  box-shadow:none;border:1.5px dashed var(--faint);
+/* Glass glare: a soft diagonal band of light crossing the display, as if a
+   studio light were catching its coating. Above the screenshot, below the
+   Dynamic Island, and never interactive. */
+.screen::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(115deg,
+    rgba(255,255,255,.055) 0%,rgba(255,255,255,.018) 15%,
+    transparent 30%,transparent 70%,
+    rgba(255,255,255,.03) 84%,transparent 100%);
+  mix-blend-mode:screen;
 }
-.pcheck{
-  position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;
-  background:var(--ok);color:#0d1a10;font:700 9px/1 var(--sans);
-  display:grid;place-items:center;box-shadow:0 0 0 1.5px var(--bg);
+/* The iPhone 15 has a Dynamic Island, not a notch — a free-floating pill
+   inset from the top edge rather than a cut-out hanging off it. */
+.island{
+  position:absolute;top:2.4%;left:50%;transform:translateX(-50%);
+  width:31%;aspect-ratio:125/36;border-radius:100px;z-index:3;
+  background:#000;box-shadow:0 0 0 .5px rgba(255,255,255,.05);
 }
-
-.ph-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-  padding:11px 12px;margin-bottom:9px;
-}
-.ph-card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:9px}
-.ph-card-h b{font:700 10.5px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase}
-.ph-card-h i{font:400 9.5px/1 var(--mono);color:var(--faint);font-style:normal}
-
-.set{
-  display:grid;grid-template-columns:14px 1fr 1fr 22px;gap:7px;align-items:center;
-  padding:6px 0;border-top:1px solid var(--line);
-}
-.set:first-of-type{border-top:0}
-.set .n{font:400 9.5px/1 var(--mono);color:var(--faint)}
-.set .v{
-  background:var(--card2);border:1px solid var(--line);border-radius:6px;
-  padding:5px 0;text-align:center;font:500 11px/1 var(--mono);color:var(--text);
-}
-.set .chk{
-  width:19px;height:19px;border-radius:6px;border:1.5px solid var(--line);
-  display:grid;place-items:center;font-size:10px;color:transparent;
-}
-.set.on .chk{background:var(--ok);border-color:var(--ok);color:#0d1a10}
-.set.on .v{color:var(--dim)}
-
-.ph-grade{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  padding:10px 12px;border-radius:var(--r);
-  border:1px solid var(--acc-line);
-  background:linear-gradient(180deg,var(--acc-soft),transparent);
-}
-.ph-grade span{font:400 10px/1.4 var(--sans);color:var(--dim);max-width:19ch}
-.ph-grade b{font:900 24px/1 var(--disp);color:var(--acc)}
-
-.ph-nav{
-  display:flex;justify-content:space-between;padding:9px 6px 4px;
-  border-top:1px solid var(--line);margin-top:11px;
-}
-.ph-nav i{
-  font-style:normal;font:500 8.5px/1 var(--mono);letter-spacing:.05em;
-  text-transform:uppercase;color:var(--faint);
-}
-.ph-nav i.on{color:var(--acc)}
 
 /* the floating annotation cards */
 .float{
@@ -404,6 +403,11 @@ header.stuck{border-bottom-color:var(--line)}
     display:grid;gap:10px;width:100%;max-width:560px;margin-top:26px;
     grid-template-columns:repeat(auto-fit,minmax(224px,1fr));
   }
+  /* The 3D tilt reads as depth when the phone has room to sit at an angle
+     beside its annotations. Stacked single-column, that same tilt just looks
+     like a crooked screenshot, so it settles flat once the layout stacks. */
+  :root{--tilt:none}
+  .phone-shadow{width:min(240px,64vw);height:38px}
 }
 @media (min-width:941px){.stage .floats{display:contents}}
 
@@ -708,7 +712,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--car
     animation-duration:.001ms!important;animation-iteration-count:1!important;
     transition-duration:.001ms!important;
   }
-  .line>span,.hero p.lede,.hero-btns,.hero-note,.phone,.float{opacity:1;transform:none}
+  .line>span,.hero p.lede,.hero-btns,.hero-note,.float{opacity:1;transform:none}
+  /* The phone's tilt is a held pose, not motion — only the slide-and-fade
+     entrance is what reduced motion asks to skip, so this keeps the pose
+     rather than flattening the device. */
+  .phone{opacity:1;transform:var(--tilt)}
   .rv{opacity:1;transform:none}
   .mq-track{animation:none}
 }
