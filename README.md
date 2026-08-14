@@ -1,4 +1,4 @@
-# Element 26 — promotional site
+ Element 26 — promotional site
 
 A static one-page marketing site for Element 26, the training log that reads what
 you lift and tells you what to change.
