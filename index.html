@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e0e10">
+<title>Element 26 — The training log that reads what you lift</title>
+<meta name="description" content="Element 26 is a training log that reads what you lift and tells you what to change. Import your coach's plan from a PDF or a photo, get every session graded, and see the volume each of 38 muscle regions actually receives.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Element 26 — The training log that reads what you lift">
+<meta property="og:description" content="Import your plan from a PDF or a photo. Every session graded. Volume tracked across 38 muscle regions against real landmarks.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230e0e10'/%3E%3Crect x='9' y='9' width='82' height='82' rx='7' fill='none' stroke='%23c65d3a' stroke-width='4'/%3E%3Ctext x='20' y='34' font-family='monospace' font-size='17' fill='%23e8e6e1'%3E26%3C/text%3E%3Ctext x='50' y='72' font-family='monospace' font-size='40' font-weight='bold' fill='%23e8e6e1' text-anchor='middle'%3EFe%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header id="hdr">
+  <div class="wrap hd">
+    <a class="brand" href="#top" aria-label="Element 26, home">
+      <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
+      <span>Element&nbsp;26</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#difference">The difference</a>
+      <a href="#body">Muscle map</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="hd-cta">
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a class="btn" href="#get">Start<span class="wide-only">&nbsp;training</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-in">
+      <span class="eyebrow"><span class="dot"></span> Iron &middot; Fe &middot; <b>55.845</b></span>
+
+      <h1>Stop logging sets.<br><span class="sub">Start reading them.</span></h1>
+
+      <p class="lede">
+        Element 26 is a training log that reads what you lift and tells you what to
+        change. Bring your plan in from a PDF, a spreadsheet or a photo of the sheet
+        in your gym bag — then let every session grade itself.
+      </p>
+
+      <div class="hero-btns">
+        <a class="btn" href="#get">
+          Start training
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+
+      <p class="hero-note">No email. No password. Four seconds to an account.</p>
+    </div>
+
+    <!-- ---------------- the phone ---------------- -->
+    <div class="stage">
+      <div class="floats">
+        <div class="float f1">
+          <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
+          <b>Import, don't retype</b>
+          <p>A coach's PDF, a spreadsheet, a photo of a printout. It gets read and turned into your programme.</p>
+        </div>
+        <div class="float f2">
+          <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3.4l1.8-5.2 3 10.4 2-8.6 1.3 3.4H21"/></svg></span>
+          <b>38 muscle regions</b>
+          <p>Every head of the triceps, quads, hamstrings and calves — measured against what you actually did.</p>
+        </div>
+        <div class="float f3">
+          <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5"/><circle cx="12" cy="17" r="3"/></svg></span>
+          <b>Every session graded</b>
+          <p>Scored against the last time you did the same lifts — with the one thing worth changing today.</p>
+        </div>
+        <div class="float f4">
+          <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 8v4l3.3 2.2"/></svg></span>
+          <b>Rest, watched</b>
+          <p>The stopwatch runs itself between sets, and the grade knows whether you honoured the window.</p>
+        </div>
+      </div>
+
+      <div class="phone">
+        <span class="notch" aria-hidden="true"></span>
+        <div class="screen">
+          <div class="statusbar">
+            <span>9:41</span>
+            <span class="bars" aria-hidden="true">
+              <i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i>
+            </span>
+          </div>
+
+          <div class="ph-hdr">
+            <h4>Element 26</h4>
+            <span class="date">Thu 14 Aug</span>
+          </div>
+
+          <!-- six-day PPL A/B rotation -->
+          <div class="plates" aria-hidden="true">
+            <span class="plate done" style="background:var(--chest)">PA<span class="pcheck">✓</span></span>
+            <span class="plate done" style="background:var(--back)">LA<span class="pcheck">✓</span></span>
+            <span class="plate done" style="background:var(--legs)">GA<span class="pcheck">✓</span></span>
+            <span class="plate cur"  style="background:#d18049">PB</span>
+            <span class="plate"      style="background:#54aabd">LB</span>
+            <span class="plate"      style="background:#9aa681">GB</span>
+            <span class="plate rest">R</span>
+          </div>
+
+          <div class="ph-card">
+            <div class="ph-card-h"><b>Incline DB Press</b><i>3 × 8–12 · RPE 8</i></div>
+            <div class="set on"><span class="n">1</span><span class="v">65 lb</span><span class="v">11</span><span class="chk">✓</span></div>
+            <div class="set on"><span class="n">2</span><span class="v">65 lb</span><span class="v">10</span><span class="chk">✓</span></div>
+            <div class="set"><span class="n">3</span><span class="v">65 lb</span><span class="v">—</span><span class="chk">✓</span></div>
+          </div>
+
+          <div class="ph-card">
+            <div class="ph-card-h"><b>Cable Fly</b><i>3 × 12–15 · RPE 9</i></div>
+            <div class="set"><span class="n">1</span><span class="v">30 lb</span><span class="v">—</span><span class="chk">✓</span></div>
+            <div class="set"><span class="n">2</span><span class="v">30 lb</span><span class="v">—</span><span class="chk">✓</span></div>
+          </div>
+
+          <div class="ph-grade">
+            <span>Last Push B — rest ran short on your top sets.</span>
+            <b>B+</b>
+          </div>
+
+          <div class="ph-nav" aria-hidden="true">
+            <i class="on">Today</i><i>History</i><i>Body</i><i>Program</i><i>Settings</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SPEC STRIP ============================ -->
+<!-- The template ran a wall of client logos here. Element 26 has no logos to
+     borrow, so the strip states the specification instead. -->
+<div class="specs">
+  <div class="wrap">
+    <div class="spec"><b>38</b><span>Muscle regions</span></div>
+    <div class="spec"><b>Fe</b><span>Atomic number 26</span></div>
+    <div class="spec"><b>0</b><span>Passwords required</span></div>
+    <div class="spec"><b>MEV</b><span>Volume landmarks</span></div>
+  </div>
+</div>
+
+<!-- ============================ FEATURES ============================ -->
+<section id="features">
+  <div class="wrap">
+    <span class="kick rv">The product</span>
+    <h2 class="sec-h rv">Everything you need to<br><em>train on purpose</em></h2>
+    <p class="sec-p rv">
+      Most logs are a notebook with a database behind it. This one reads the numbers
+      back to you: what moved, what stalled, and which muscle is quietly getting
+      nothing.
+    </p>
+
+    <div class="bento">
+      <div class="cell wide rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span>
+        <h3>Bring your plan in as it is</h3>
+        <p>
+          Hand it a coach's PDF, a spreadsheet, a screenshot or a photo of the sheet in
+          your gym bag. It reads the document, pulls out the workouts, exercises, sets,
+          rep ranges and any instructions written into it — deloads, supersets, dropsets
+          — and asks you about anything ambiguous rather than guessing. Nothing lands in
+          your workouts until you've seen it laid out and said yes.
+        </p>
+        <div class="demo">
+          <div class="filerow">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            <span>hypertrophy-block-3.pdf</span>
+            <span class="tick" aria-hidden="true">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5"/><circle cx="12" cy="17" r="3"/></svg></span>
+        <h3>Sessions that grade themselves</h3>
+        <p>
+          Every workout is scored against the last time you did the same lifts — load,
+          reps, effort and whether you actually rested. You get a grade and, more
+          usefully, the single change worth making next time.
+        </p>
+        <div class="demo chips">
+          <span class="chip on">A−</span><span class="chip">Load +2</span><span class="chip">Rest −0.8</span>
+        </div>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3.4l1.8-5.2 3 10.4 2-8.6 1.3 3.4H21"/></svg></span>
+        <h3>Volume you can actually see</h3>
+        <p>
+          Hard sets per muscle per week — the unit the research is written in — laid
+          against minimum effective, maximum adaptive and maximum recoverable volume.
+          Sit under the line two weeks running and the muscle gets flagged.
+        </p>
+      </div>
+
+      <div class="cell wide rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3.5-4.5 3 3L20 7"/></svg></span>
+        <h3>Progression it can defend</h3>
+        <p>
+          Load suggestions come from your own history, not a formula applied blind. It
+          spots stalls, calibrates a starting weight on any lift with no baseline, and
+          keeps a change log of every edit you make to the programme — so when a rep
+          range moves from 6–10 to 12–15 and your estimated 1RM drops by design, the
+          grade knows that isn't you going backwards.
+        </p>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v-6M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></span>
+        <h3>No jargon left standing</h3>
+        <p>
+          Every technical term in the app is underlined. Tap it and you get a
+          plain-English entry — what it means, and why it changes what you do.
+        </p>
+        <div class="demo termdemo">
+          Keep this lift near <span class="term" title="RPE — how hard a set felt, on a scale where 10 means you could not have done another rep.">RPE&nbsp;8</span>, or roughly two reps in reserve.
+        </div>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><rect x="4" y="10" width="16" height="7" rx="2"/><rect x="7" y="15" width="10" height="6" rx="1"/></svg></span>
+        <h3>Reports worth printing</h3>
+        <p>
+          Your whole programme, or your whole history, laid out as a document you can
+          hand to a coach or a physio — including what each muscle receives per cycle.
+        </p>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+        <h3>An account that asks for nothing</h3>
+        <p>
+          No email, no password, no sign-in with anything. You give it a name, and it
+          gives you an ID and a recovery key to keep. That's the whole setup — and if
+          you'd rather it never left the device at all, it doesn't have to.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ THE DIFFERENCE ============================ -->
+<section id="difference">
+  <div class="wrap">
+    <div class="cmp-head">
+      <div>
+        <span class="kick rv">The difference</span>
+        <h2 class="sec-h rv">A notebook remembers.<br><em>This one reads.</em></h2>
+      </div>
+      <p class="sec-p rv" style="max-width:38ch">
+        The gap isn't storage. Every app stores your sets. The question is whether
+        anything ever looks at them again.
+      </p>
+    </div>
+
+    <div class="cmp">
+      <div class="col rv">
+        <div class="col-h">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v16H4zM8 3v4M16 3v4M8 12h8M8 16h5"/></svg></span>
+          <span><b>A typical log</b><i>Notebook, notes app, spreadsheet</i></span>
+        </div>
+        <div class="row"><span class="lbl">Getting your plan in</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Typed by hand</span></div>
+        <div class="row"><span class="lbl">After the session</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Nothing happens</span></div>
+        <div class="row"><span class="lbl">Volume per muscle</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>You guess</span></div>
+        <div class="row"><span class="lbl">Weak points</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Found in the mirror</span></div>
+        <div class="row"><span class="lbl">Next session's load</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Gut feel</span></div>
+        <div class="row"><span class="lbl">Sign-up</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Email + password</span></div>
+        <div class="row"><span class="lbl">The jargon</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Look it up yourself</span></div>
+      </div>
+
+      <div class="col mine rv">
+        <div class="col-h">
+          <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
+          <span><b>Element 26</b><i>Reads it back to you</i></span>
+        </div>
+        <div class="row"><span class="lbl">Getting your plan in</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>PDF or photo</span></div>
+        <div class="row"><span class="lbl">After the session</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Graded, with advice</span></div>
+        <div class="row"><span class="lbl">Volume per muscle</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>38 regions, counted</span></div>
+        <div class="row"><span class="lbl">Weak points</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Flagged under MEV</span></div>
+        <div class="row"><span class="lbl">Next session's load</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>From your history</span></div>
+        <div class="row"><span class="lbl">Sign-up</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>A name. That's it</span></div>
+        <div class="row"><span class="lbl">The jargon</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Tap any word</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ MUSCLE MAP ============================ -->
+<section id="body">
+  <div class="wrap split">
+    <div>
+      <span class="kick rv">The body tab</span>
+      <h2 class="sec-h rv">Find the muscle<br><em>you've been missing</em></h2>
+      <p class="sec-p rv">
+        Element 26 attributes every set you log to the regions it actually trains — all
+        38 of them, down to each head of the triceps, quads, hamstrings and calves. Then
+        it counts them in hard sets per week and lays that against the volume landmarks
+        the training research is written in.
+      </p>
+
+      <ul class="bullets">
+        <li class="rv"><span class="bic" aria-hidden="true">1</span><span><b>Named in plain English.</b> Every region tells you where it is on your body, what the gym calls it, and the one thing worth knowing about training it.</span></li>
+        <li class="rv"><span class="bic" aria-hidden="true">2</span><span><b>Under MEV two weeks running gets flagged.</b> That's a muscle you're spending gym time on without getting growth back.</span></li>
+        <li class="rv"><span class="bic" aria-hidden="true">3</span><span><b>Landmarks, not laws.</b> The MEV / MAV / MRV framework is population averages with wide individual variation, and the app says so where it shows them.</span></li>
+      </ul>
+    </div>
+
+    <div class="panel rv">
+      <div class="panel-h"><b>Weekly volume</b><i>Hard sets · last 7 days</i></div>
+
+      <div class="vol">
+        <div class="vol-t"><b>Side Shoulder</b><i class="under">4 / MEV 8</i></div>
+        <div class="bar"><span class="fill" style="--m:var(--shoulders)" data-w="22"></span>
+          <span class="tick" style="left:44%"></span><span class="tick" style="left:66%"></span><span class="tick" style="left:88%"></span></div>
+      </div>
+
+      <div class="vol">
+        <div class="vol-t"><b>Mid Chest</b><i>14 sets</i></div>
+        <div class="bar"><span class="fill" style="--m:var(--chest)" data-w="70"></span>
+          <span class="tick" style="left:44%"></span><span class="tick" style="left:66%"></span><span class="tick" style="left:88%"></span></div>
+      </div>
+
+      <div class="vol">
+        <div class="vol-t"><b>Lats</b><i>16 sets</i></div>
+        <div class="bar"><span class="fill" style="--m:var(--back)" data-w="79"></span>
+          <span class="tick" style="left:44%"></span><span class="tick" style="left:66%"></span><span class="tick" style="left:88%"></span></div>
+      </div>
+
+      <div class="vol">
+        <div class="vol-t"><b>Triceps Long Head</b><i class="under">3 / MEV 6</i></div>
+        <div class="bar"><span class="fill" style="--m:var(--arms)" data-w="17"></span>
+          <span class="tick" style="left:44%"></span><span class="tick" style="left:66%"></span><span class="tick" style="left:88%"></span></div>
+      </div>
+
+      <div class="vol">
+        <div class="vol-t"><b>Outer Quad</b><i>12 sets</i></div>
+        <div class="bar"><span class="fill" style="--m:var(--legs)" data-w="62"></span>
+          <span class="tick" style="left:44%"></span><span class="tick" style="left:66%"></span><span class="tick" style="left:88%"></span></div>
+      </div>
+
+      <div class="ticks">
+        <span style="left:0">0</span>
+        <span style="left:44%">MEV</span>
+        <span style="left:66%">MAV</span>
+        <span style="left:88%">MRV</span>
+      </div>
+
+      <div class="flag">
+        <b>Two flagged.</b> Your side delts and triceps long head have sat under their
+        minimum effective volume for two weeks. Pressing already covers the front delt
+        — it's the lateral raise and the overhead extension that are missing.
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ HOW IT WORKS ============================ -->
+<section id="how">
+  <div class="wrap">
+    <span class="kick rv">How it works</span>
+    <h2 class="sec-h rv">Three steps to a<br><em>programme that runs itself</em></h2>
+    <p class="sec-p rv">
+      The setup is the part every other log gets wrong. Here it's a conversation, and
+      you approve everything before it becomes real.
+    </p>
+
+    <div class="steps">
+      <div class="step rv">
+        <span class="no">STEP 01</span>
+        <h3>Hand over your plan</h3>
+        <p>
+          Upload the PDF, the spreadsheet or a photo of the page. It checks the document
+          is readable before it does anything else, then pulls out the workouts,
+          exercises, sets and rep ranges — along with any rules written into it.
+        </p>
+      </div>
+      <div class="step rv">
+        <span class="no">STEP 02</span>
+        <h3>Answer what it can't infer</h3>
+        <p>
+          A few short questions, only where the document is genuinely silent — how you
+          want sides handled, whether to generate warm-ups, what to grade effort
+          against if your plan sets no targets. It won't invent an answer quietly.
+        </p>
+      </div>
+      <div class="step rv">
+        <span class="no">STEP 03</span>
+        <h3>Check it, then train</h3>
+        <p>
+          You see the whole thing laid out day by day, with anything it couldn't match
+          exactly called out so you can fix it. Say yes and your first session is
+          waiting on the Today tab. Everything stays editable afterwards.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ FAQ ============================ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="kick rv">Questions</span>
+    <h2 class="sec-h rv">Before you start</h2>
+
+    <div class="faq">
+      <details class="q rv">
+        <summary>Do I need a plan already?</summary>
+        <div class="a"><p>It's the fastest way in — the importer exists so you never retype a coach's programme. But you can also build a split by hand in the Program tab, and everything the importer produces is editable there anyway.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>What can the importer actually read?</summary>
+        <div class="a"><p>PDFs, images (including photos and screenshots), plain text, Markdown and CSV — or you can paste the plan in as text. It also recognises an Element 26 export, which is how you restore a backup through the same button.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>What if it reads something wrong?</summary>
+        <div class="a"><p>You see the full plan before it's added, and anything the exercise database couldn't match exactly is called out with somewhere to correct it. Nothing reaches your workouts until you've approved it — and once your history exists, nothing the importer does can change what you already logged.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Where do the volume landmarks come from?</summary>
+        <div class="a"><p>The MEV / MAV / MRV framework popularised by Mike Israetel and Renaissance Periodization, expressed in hard sets per muscle per week. They're population averages with wide individual variation — the app treats them as a starting frame rather than a rule, and says as much wherever it shows them.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Do I have to rate every set?</summary>
+        <div class="a"><p>No. Rating effort costs one tap per set and it's what drives the grade, the load suggestions and stall detection — but you can turn it off, and the set rows lose the column entirely. The session still grades, with a little less to go on.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Do you want my email address?</summary>
+        <div class="a"><p>No — and there's no password and no sign-in with anyone else's account either. You give it a name and it hands you an ID and a recovery key to save. If you'd rather nothing left the device at all, your account and everything in it can stay local.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section class="cta" id="get">
+  <div class="wrap">
+    <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b><em>55.845</em></span>
+    <h2>Iron sharpens iron.<br>Data sharpens both.</h2>
+    <p>
+      Bring your plan. Log your sets. Let the app do the reading — and find out what
+      your training has been telling you all along.
+    </p>
+    <div class="hero-btns">
+      <a class="btn" href="#">
+        Start training
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn ghost" href="#features">Read the features again</a>
+    </div>
+    <p class="hero-note" style="margin-top:20px">No email · No password · Works offline</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <a class="brand" href="#top">
+          <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
+          <span>Element&nbsp;26</span>
+        </a>
+        <p>A training log that reads what you lift and tells you what to change.</p>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#difference">The difference</a></li>
+          <li><a href="#body">Muscle map</a></li>
+          <li><a href="#how">How it works</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#body">Volume landmarks</a></li>
+          <li><a href="#how">Importing a plan</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Element</h4>
+        <ul>
+          <li><a href="#get">Get started</a></li>
+          <li><a href="#faq">Privacy</a></li>
+          <li><a href="#faq">Support</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ft-btm">
+      <span>&copy; <span id="yr">2026</span> Element 26</span>
+      <span>Fe &middot; 26 &middot; 55.845 u</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
