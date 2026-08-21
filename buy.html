@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e0e10">
+<title>Get Element 26 — Start training</title>
+<meta name="description" content="Get Element 26: a grade on every session, volume tracked across 38 muscle regions, and progression that comes from your own history. No email, no password, works offline.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230e0e10'/%3E%3Crect x='9' y='9' width='82' height='82' rx='7' fill='none' stroke='%23c65d3a' stroke-width='4'/%3E%3Ctext x='20' y='34' font-family='monospace' font-size='17' fill='%23e8e6e1'%3E26%3C/text%3E%3Ctext x='50' y='72' font-family='monospace' font-size='40' font-weight='bold' fill='%23e8e6e1' text-anchor='middle'%3EFe%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================ HEADER ============================ -->
+<header id="hdr">
+  <div class="wrap hd">
+    <a class="brand" href="index.html" aria-label="Element 26, home">
+      <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
+      <span class="wm">Element&nbsp;26</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#difference">The difference</a>
+      <a href="index.html#body">Muscle map</a>
+      <a href="index.html#loop">The loop</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+
+    <div class="hd-cta">
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a class="btn ghost" href="index.html"><span>Back to site</span></a>
+    </div>
+  </div>
+  <span id="prog" aria-hidden="true"></span>
+</header>
+
+<main id="top">
+
+<!-- ============================ BUY ============================ -->
+<section class="buy">
+  <span class="glow" aria-hidden="true"></span>
+  <div class="wrap">
+
+    <div class="buy-head">
+      <span class="kick rv" style="justify-content:center">Get Element 26</span>
+      <!-- Deliberately neutral on billing model: the period switch below can be
+           monthly, yearly or a one-time purchase, and a headline that says
+           "buy it once" would contradict two of those three. -->
+      <h1 class="rv">One product.<br><em>Everything in it.</em></h1>
+      <p class="rv">
+        One product, everything included. No tiers to compare, no feature held
+        back to sell you a bigger plan later.
+      </p>
+    </div>
+
+    <!-- Billing period. Remove this block for a one-time purchase. -->
+    <div class="period rv" role="group" aria-label="Billing period">
+      <button type="button" class="on" data-period="monthly">Monthly</button>
+      <button type="button" data-period="yearly">Yearly <i id="saveTag"></i></button>
+    </div>
+
+    <div class="plan rv">
+      <div class="plan-main">
+        <span class="plan-tag">Element 26 &middot; Full access</span>
+
+        <div class="plan-price">
+          <span class="cur" id="cur">$</span><span class="amount num" id="amount">—</span>
+          <span class="per" id="per">per month</span>
+        </div>
+        <p class="plan-billed" id="billed">Billed monthly. Cancel any time.</p>
+
+        <a class="btn" id="checkout" href="#"><span>Start training</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <p class="plan-note">No email. No password. Four seconds to an account.</p>
+
+        <ul class="assure">
+          <li><span class="tick" aria-hidden="true">✓</span> Works offline — the gym basement is the normal case</li>
+          <li><span class="tick" aria-hidden="true">✓</span> Your log is never rewritten by anything</li>
+          <li><span class="tick" aria-hidden="true">✓</span> Export your whole history whenever you want</li>
+        </ul>
+      </div>
+
+      <div class="plan-side">
+        <h2>Everything is included</h2>
+        <ul class="includes">
+          <li><b>Session grading</b> Every workout scored against the last time you did the same lifts, with the one change worth making.</li>
+          <li><b>The muscle map</b> All 38 regions, counted in hard sets per week against MEV, MAV and MRV.</li>
+          <li><b>Progression from your history</b> Load suggestions, stall detection, estimated 1RM, and PRs caught as they happen.</li>
+          <li><b>Rest, timed and judged</b> The stopwatch runs itself, and short rests show up in the grade.</li>
+          <li><b>Warm-ups and supersets</b> Generated from your working load, handled in the same rows.</li>
+          <li><b>Reports worth printing</b> Your programme or your full history, as a document for a coach or physio.</li>
+          <li><b>The glossary</b> Every technical term underlined, with a plain-English entry behind it.</li>
+          <li><b>An account that asks for nothing</b> A name gets you an ID and a recovery key. That's the whole setup.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ BILLING FAQ ============================ -->
+<section id="billing">
+  <div class="wrap">
+    <span class="kick rv">Before you buy</span>
+    <h2 class="sec-h rv">Questions about billing</h2>
+
+    <div class="faq">
+      <details class="q rv">
+        <summary>What happens right after I pay?</summary>
+        <div class="a"><p>You land straight in the app and give it a name. It hands you an ID and a recovery key to save — that's the entire setup, and there's no email confirmation to wait for.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Do I need an account to train?</summary>
+        <div class="a"><p>You need one to keep your training tied to you, but it costs you a name and nothing else. No email address, no password, and no signing in with anyone else's account. If you'd rather nothing left the device, everything can stay local.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Can I get my data out?</summary>
+        <div class="a"><p>Yes. Your whole account exports as a file you keep, and the same file restores it. History also prints as a report you can hand to a coach or a physio.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Does it work without signal?</summary>
+        <div class="a"><p>Yes. Everything you log is written locally first, and syncing is something the app does when it can rather than something it needs to function. Gym basements are the normal case, not the edge case.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-brand">
+        <a class="brand" href="index.html">
+          <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
+          <span class="wm">Element&nbsp;26</span>
+        </a>
+        <p>A training log that reads what you lift and tells you what to change.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#difference">The difference</a></li>
+          <li><a href="index.html#body">Muscle map</a></li>
+          <li><a href="index.html#loop">The loop</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="#billing">Billing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Element</h4>
+        <ul>
+          <li><a href="buy.html">Get started</a></li>
+          <li><a href="index.html#faq">Privacy</a></li>
+          <li><a href="index.html#faq">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-btm">
+      <span>&copy; <span id="yr">2026</span> Element 26</span>
+      <span>Fe &middot; 26 &middot; 55.845 u</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script src="assets/buy.js"></script>
+</body>
+</html>

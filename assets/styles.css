@@ -748,3 +748,89 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--car
   .rv{opacity:1;transform:none}
   .mq-track{animation:none}
 }
+
+/* ---------- purchase page ---------------------------------------------- */
+.buy{padding-top:clamp(52px,7vw,88px);overflow:hidden}
+.buy .glow{
+  position:absolute;left:50%;top:-320px;width:1100px;height:760px;transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(198,93,58,.16),transparent 66%);
+  pointer-events:none;animation:drift 15s ease-in-out infinite alternate;
+}
+.buy .wrap{z-index:1}
+.buy-head{text-align:center;max-width:720px;margin:0 auto 34px}
+.buy-head h1{font-weight:900;font-size:clamp(34px,5.6vw,64px);letter-spacing:-.025em;line-height:.98;margin-bottom:18px}
+.buy-head h1 em{font-style:normal;color:var(--faint)}
+.buy-head p{color:var(--dim);font-size:17px;margin:0 auto;max-width:46ch}
+
+/* billing period switch */
+.period{
+  display:flex;gap:4px;margin:0 auto 26px;width:max-content;padding:4px;
+  border:1px solid var(--line);border-radius:100px;background:var(--card);
+}
+.period button{
+  display:flex;align-items:center;gap:7px;
+  padding:10px 20px;border:0;border-radius:100px;background:transparent;color:var(--dim);
+  font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  transition:background .2s ease,color .2s ease;
+}
+.period button.on{background:var(--acc);color:#12100f;font-weight:600}
+.period button i{
+  font-style:normal;font-size:10px;letter-spacing:.06em;
+  padding:3px 7px;border-radius:100px;background:var(--acc-soft);color:var(--acc);
+}
+.period button.on i{background:rgba(0,0,0,.22);color:#12100f}
+.period button i:empty{display:none}
+
+/* the plan card */
+.plan{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  border:1px solid var(--acc-line);border-radius:var(--r);overflow:hidden;
+  background:var(--card);max-width:1000px;margin:0 auto;
+}
+@media (max-width:860px){.plan{grid-template-columns:1fr}}
+.plan-main{
+  padding:clamp(28px,4vw,40px);text-align:center;
+  background:linear-gradient(180deg,var(--acc-soft),transparent 60%);
+  border-right:1px solid var(--line);
+}
+@media (max-width:860px){.plan-main{border-right:0;border-bottom:1px solid var(--line)}}
+.plan-tag{
+  display:inline-block;margin-bottom:22px;padding:6px 13px;border-radius:100px;
+  border:1px solid var(--acc-line);background:var(--bg);
+  font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+}
+.plan-price{display:flex;align-items:baseline;justify-content:center;gap:3px;flex-wrap:wrap}
+.plan-price .cur{font:800 26px/1 var(--disp);color:var(--text);align-self:flex-start;margin-top:8px}
+.plan-price .amount{font:900 clamp(48px,7vw,76px)/1 var(--disp);color:var(--text);letter-spacing:-.03em}
+.plan-price .per{font:400 13px/1 var(--mono);color:var(--dim);margin-left:6px}
+/* Unset price: reads as a state, not as a number. */
+body.price-unset .plan-price .amount{
+  font:600 17px/1.3 var(--mono);color:var(--faint);letter-spacing:.04em;
+}
+.plan-billed{margin:14px 0 22px;color:var(--dim);font-size:13.5px}
+.plan-main .btn{width:100%}
+.btn.is-disabled{
+  background:var(--card2);color:var(--faint);border-color:var(--line);
+  cursor:not-allowed;box-shadow:none;
+}
+.btn.is-disabled:hover{filter:none;box-shadow:none}
+.btn.is-disabled::after{display:none}
+.plan-note{margin:14px 0 0;color:var(--faint);font:400 12px/1.5 var(--mono)}
+
+.assure{list-style:none;margin:26px 0 0;padding:22px 0 0;border-top:1px solid var(--line);text-align:left}
+.assure li{display:flex;gap:10px;margin-bottom:11px;color:var(--dim);font-size:13.5px;line-height:1.5}
+.assure li:last-child{margin-bottom:0}
+.assure .tick{
+  flex:none;width:17px;height:17px;border-radius:50%;margin-top:2px;
+  display:grid;place-items:center;background:var(--acc-soft);color:var(--acc);font-size:9px;font-weight:700;
+}
+
+.plan-side{padding:clamp(28px,4vw,40px)}
+.plan-side h2{font-size:15px;margin-bottom:20px;color:var(--acc)}
+.includes{list-style:none;margin:0;padding:0}
+.includes li{
+  padding:14px 0;border-top:1px solid var(--line);
+  color:var(--dim);font-size:14px;line-height:1.55;
+}
+.includes li:first-child{border-top:0;padding-top:0}
+.includes li b{display:block;color:var(--text);font-weight:600;margin-bottom:3px;font-size:14.5px}
