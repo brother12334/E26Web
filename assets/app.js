@@ -21,9 +21,11 @@
   var ticking = false;
 
   function onScroll() {
-    hdr.classList.toggle("stuck", window.scrollY > 8);
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    if (hdr) hdr.classList.toggle("stuck", window.scrollY > 8);
+    if (prog) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    }
     ticking = false;
   }
 
@@ -33,27 +35,33 @@
   onScroll();
 
   /* ---- mobile menu ---------------------------------------------------- */
+  /* Not every page has a menu — the post-purchase page is a single column with
+     no nav at all. This file is shared across all of them, so each block has to
+     tolerate its elements being absent rather than throwing on load and taking
+     the rest of the script (reveals, the footer year) down with it. */
   var burger = $("#burger");
   var nav = $("#nav");
 
-  function setMenu(open) {
-    nav.classList.toggle("open", open);
-    burger.setAttribute("aria-expanded", String(open));
+  if (burger && nav) {
+    var setMenu = function (open) {
+      nav.classList.toggle("open", open);
+      burger.setAttribute("aria-expanded", String(open));
+    };
+
+    burger.addEventListener("click", function () {
+      setMenu(!nav.classList.contains("open"));
+    });
+
+    // Every nav link is in-page, so leaving the menu open would cover the very
+    // section the visitor just asked for.
+    nav.addEventListener("click", function (e) {
+      if (e.target.closest("a")) setMenu(false);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setMenu(false);
+    });
   }
-
-  burger.addEventListener("click", function () {
-    setMenu(!nav.classList.contains("open"));
-  });
-
-  // Every nav link is in-page, so leaving the menu open would cover the very
-  // section the visitor just asked for.
-  nav.addEventListener("click", function (e) {
-    if (e.target.closest("a")) setMenu(false);
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") setMenu(false);
-  });
 
   /* ---- one observer, several jobs -------------------------------------
      Reveals, bar fills, sparkline bars and count-ups all fire the first time
@@ -158,5 +166,6 @@
   }
 
   /* ---- footer year ------------------------------------------------------ */
-  $("#yr").textContent = new Date().getFullYear();
+  var yr = $("#yr");
+  if (yr) yr.textContent = new Date().getFullYear();
 })();

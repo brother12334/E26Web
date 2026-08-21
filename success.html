@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e0e10">
+<meta name="robots" content="noindex, nofollow">
+<title>You're in — Element 26</title>
+<meta name="description" content="Your Element 26 download and first-run instructions.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230e0e10'/%3E%3Crect x='9' y='9' width='82' height='82' rx='7' fill='none' stroke='%23c65d3a' stroke-width='4'/%3E%3Ctext x='20' y='34' font-family='monospace' font-size='17' fill='%23e8e6e1'%3E26%3C/text%3E%3Ctext x='50' y='72' font-family='monospace' font-size='40' font-weight='bold' fill='%23e8e6e1' text-anchor='middle'%3EFe%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="hdr">
+  <div class="wrap hd">
+    <a class="brand" href="index.html" aria-label="Element 26, home">
+      <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
+      <span class="wm">Element&nbsp;26</span>
+    </a>
+    <div class="hd-cta">
+      <a class="btn ghost" href="index.html"><span>Back to site</span></a>
+    </div>
+  </div>
+  <span id="prog" aria-hidden="true"></span>
+</header>
+
+<main id="top">
+<section class="buy">
+  <span class="glow" aria-hidden="true"></span>
+  <div class="wrap">
+
+    <!-- Shown when the visitor arrived from a completed Stripe checkout. -->
+    <div class="thanks" id="paid" hidden>
+      <span class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+      </span>
+      <span class="kick" style="justify-content:center">Payment received</span>
+      <h1>You're in.</h1>
+      <p class="lede">
+        Element 26 is one file. Download it, keep it somewhere you won't lose it,
+        and open it whenever you train — it runs in your browser and works offline.
+      </p>
+
+      <a class="btn" id="download" href="#" download>
+        <span>Download Element 26</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 12l6 6 6-6M5 20h14"/></svg>
+      </a>
+      <p class="plan-note" id="dlNote">A single HTML file &middot; runs in any browser</p>
+
+      <ol class="firstrun">
+        <li><b>Open the file</b> Double-click it, or drag it into a browser tab. On a phone, open it once and add it to your home screen.</li>
+        <li><b>Give it a name</b> It hands you a User ID and a recovery key. Save both — they're how your training is identified.</li>
+        <li><b>Keep the file</b> There's no re-download link in your inbox, so put it somewhere permanent. Lost it? Email us and we'll sort it out.</li>
+      </ol>
+
+      <p class="receipt" id="receipt"></p>
+    </div>
+
+    <!-- Shown when somebody lands here without completing checkout. This is a
+         courtesy, NOT a paywall — see assets/success.js for why. -->
+    <div class="thanks" id="unpaid" hidden>
+      <span class="kick" style="justify-content:center">Nothing to download yet</span>
+      <h1>No purchase found.</h1>
+      <p class="lede">
+        This page appears once a purchase goes through. If you've just paid and
+        landed here by mistake, get in touch and we'll send your download straight over.
+      </p>
+      <a class="btn" href="buy.html"><span>Get Element 26 &mdash; $15</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-btm" style="margin-top:0;border-top:0;padding-top:0">
+      <span>&copy; <span id="yr">2026</span> Element 26</span>
+      <span>Fe &middot; 26 &middot; 55.845 u</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script src="assets/success.js"></script>
+</body>
+</html>

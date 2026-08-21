@@ -20,6 +20,8 @@
   var CHECKOUT = {
     currency: "$",
     price: 15,            // one payment, forever, single user
+    // Your Stripe Payment Link. Create it in the Stripe Dashboard and set the
+    // post-payment redirect to your success page — see SETUP-STRIPE.md.
     url: ""               // e.g. "https://buy.stripe.com/xxxxxxxx"  ← set this
   };
 
