@@ -355,6 +355,34 @@ header.stuck{border-bottom-color:var(--line)}
     rgba(255,255,255,.03) 84%,transparent 100%);
   mix-blend-mode:screen;
 }
+/* ---- placeholder slot ----------------------------------------------------
+   Stands in for the supplied phone mockup. It states the exact size the slot
+   wants rather than just being an empty grey box, so the artwork that replaces
+   it can be produced to fit without measuring anything. The glare and the
+   Dynamic Island are suppressed while it is showing: both are lighting and
+   hardware detail that only make sense over a real screenshot. */
+.screen.is-placeholder::before{content:none}
+.shot-slot{
+  position:absolute;inset:10px;border-radius:26px;
+  border:1.5px dashed var(--acc-line);
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(198,93,58,.05) 0 10px, transparent 10px 20px),
+    var(--card);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  text-align:center;padding:20px;
+}
+.shot-slot .tile{width:46px;height:46px;--tile-sym:20px;--tile-z:10px;margin-bottom:6px}
+.shot-slot b{
+  font:800 15px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.02em;color:var(--text);
+}
+.shot-slot .dim{font:500 11.5px/1.5 var(--mono);color:var(--dim);letter-spacing:.04em}
+.shot-slot .hint{
+  margin-top:10px;padding:5px 11px;border-radius:100px;
+  border:1px solid var(--acc-line);background:var(--acc-soft);
+  font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc);
+}
+
 /* The iPhone 15 has a Dynamic Island, not a notch — a free-floating pill
    inset from the top edge rather than a cut-out hanging off it. */
 .island{
