@@ -1,8 +1,8 @@
 /* ============================================================================
    ELEMENT 26 — promotional site
 
-   Palette and geometry come from the app: near-monochrome graphite with one
-   saturated accent (iron oxide) that marks the primary action and nothing else.
+   Palette, mark and geometry come from the app: near-monochrome graphite with
+   one saturated accent (copper) that marks the primary action and nothing else.
 
    TYPE IS SPLIT BY JOB, and this is the whole system:
      • Archivo, 800/900, for display. Heavy, tight, mostly uppercase — it is the
@@ -21,10 +21,10 @@
   --dim:#9b9892;
   --faint:#6f6d69;
 
-  --acc:#c65d3a;                     /* iron oxide */
-  --acc-hi:#e07a52;
-  --acc-soft:rgba(198,93,58,.14);
-  --acc-line:rgba(198,93,58,.42);
+  --acc:#c98a4b;                     /* copper — the app's mark colour */
+  --acc-hi:#e0a463;
+  --acc-soft:rgba(201,138,75,.14);
+  --acc-line:rgba(201,138,75,.42);
 
   --chest:#d1584f; --back:#4f7cc9; --arms:#c99a34;
   --shoulders:#4a9358; --legs:#ddd8cc;
@@ -105,7 +105,7 @@ section{padding:clamp(66px,9vw,120px) 0;position:relative}
   font:700 12.5px/1 var(--disp);text-transform:uppercase;letter-spacing:.08em;
   cursor:pointer;transition:transform .14s ease,box-shadow .3s ease,filter .2s ease;
 }
-.btn:hover{filter:brightness(1.08);box-shadow:0 0 34px -6px rgba(198,93,58,.75)}
+.btn:hover{filter:brightness(1.08);box-shadow:0 0 34px -6px rgba(201,138,75,.75)}
 .btn:active{transform:scale(.97)}
 /* A shine that crosses the face on hover. */
 .btn::after{
@@ -121,22 +121,23 @@ section{padding:clamp(66px,9vw,120px) 0;position:relative}
 
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
 
-/* ---------- the periodic tile ------------------------------------------- */
-.tile{
-  position:relative;flex:none;overflow:hidden;
-  display:grid;grid-template-rows:auto 1fr;align-items:center;
-  padding:2px 0 1px;
-  border:2px solid var(--acc);border-radius:var(--r-sm);
-  background:var(--bg);
+/* ---------- the brand mark ----------------------------------------------
+   Two hexagonal plates on a tilted bar over a ground-contact ellipse — the same
+   glyph the app defines once as #e26-mark and <use>s everywhere. Drawn in
+   currentColor so one colour rule decides the shade, and set bare rather than
+   inside a tile: at header size the glyph and the wordmark should carry the same
+   visual weight, instead of one being a badge for the other. */
+.mk{
+  width:var(--mk,28px);height:var(--mk,28px);flex:none;display:block;overflow:visible;
+  color:var(--acc);filter:drop-shadow(0 0 6px rgba(201,138,75,.32));
 }
-.tile i{
-  justify-self:start;padding-left:4px;font-style:normal;
-  font:400 var(--tile-z,9px)/1 var(--mono);color:var(--dim);
+/* The wordmark. `.wm` is the class the markup actually carries, so the rules hang
+   off it directly — scoping them to a wrapper left the <em> at the browser's
+   default italic and the wrong colour, which is the whole point of the element. */
+.wm{
+  font:800 15px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase;color:var(--text);
 }
-.tile b{
-  justify-self:center;align-self:center;
-  font:600 var(--tile-sym,20px)/1 var(--mono);color:var(--text);
-}
+.wm em{font-style:normal;color:var(--acc)}
 
 /* ---------- header ------------------------------------------------------ */
 header{
@@ -150,11 +151,10 @@ header.stuck{border-bottom-color:var(--line)}
 #prog{
   position:absolute;left:0;bottom:-1px;height:2px;width:0;
   background:linear-gradient(90deg,var(--acc),var(--acc-hi));
-  box-shadow:0 0 12px rgba(198,93,58,.8);
+  box-shadow:0 0 12px rgba(201,138,75,.8);
 }
 .hd{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px}
 .brand{display:flex;align-items:center;gap:11px}
-.brand .tile{width:32px;height:32px;--tile-sym:15px;--tile-z:8px;border-width:1.5px}
 .brand .wm{font:800 15px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase}
 .nav{display:flex;align-items:center;gap:4px}
 .nav a{
@@ -205,7 +205,7 @@ header.stuck{border-bottom-color:var(--line)}
 .hero .glow{
   position:absolute;left:50%;top:-340px;
   width:1150px;height:800px;transform:translateX(-50%);
-  background:radial-gradient(ellipse at center,rgba(198,93,58,.17),transparent 66%);
+  background:radial-gradient(ellipse at center,rgba(201,138,75,.17),transparent 66%);
   pointer-events:none;animation:drift 15s ease-in-out infinite alternate;
 }
 @keyframes drift{
@@ -234,7 +234,7 @@ header.stuck{border-bottom-color:var(--line)}
   width:6px;height:6px;border-radius:50%;background:var(--acc);
   box-shadow:0 0 0 3px var(--acc-soft);animation:pulseDot 2.4s ease-in-out infinite;
 }
-@keyframes pulseDot{50%{box-shadow:0 0 0 7px rgba(198,93,58,0)}}
+@keyframes pulseDot{50%{box-shadow:0 0 0 7px rgba(201,138,75,0)}}
 
 /* THE HEADLINE. Archivo 900, tight and set solid — a plate stencil, not a
    terminal. Each line is masked and lifted in on load. */
@@ -266,103 +266,130 @@ header.stuck{border-bottom-color:var(--line)}
   opacity:0;animation:fadeUp .8s .58s cubic-bezier(.16,1,.3,1) forwards;
 }
 
-/* ---------- the phone --------------------------------------------------- */
+/* ---------- the phone ----------------------------------------------------
+   A flat rounded rectangle with a notch reads as an icon, not a photograph.
+   What sells "real phone" is the thing product photography always has: a
+   camera with actual depth (perspective + a held rotation), a bezel that
+   catches light on one edge and falls into shadow on the other, glass glare
+   crossing the screen at an angle, and a shadow that stays on the ground
+   plane instead of tilting along with the device. */
 .stage{
   position:relative;margin-top:clamp(46px,6vw,78px);
   display:flex;justify-content:center;align-items:flex-start;
   padding-bottom:clamp(40px,6vw,72px);
+  perspective:1800px;perspective-origin:50% 28%;
+}
+:root{
+  /* Shared so the resting pose and the reduced-motion fallback can't drift
+     apart into two different tilts. */
+  --tilt:rotateY(-15deg) rotateX(6deg) rotateZ(1.6deg);
 }
 .phone{
   position:relative;z-index:2;width:min(332px,80vw);flex:none;
-  border-radius:42px;padding:11px;
-  background:linear-gradient(160deg,#33333a,#141417 42%,#2b2b31);
-  box-shadow:0 44px 90px -22px rgba(0,0,0,.9),0 0 0 1px rgba(232,230,225,.07);
-  opacity:0;animation:phoneIn 1.1s .3s cubic-bezier(.16,1,.3,1) forwards;
+  /* Thin, uniform bezel — the iPhone 15's edge is a few points on every side,
+     not the thick frame a generic phone illustration uses. */
+  border-radius:46px;padding:7px;
+  transform:var(--tilt);transform-origin:50% 50%;
+  /* Three metal tones instead of one: a lit facet along the top-left edge,
+     the body colour through the middle, a darker facet bottom-right — the
+     same trick a rendered product shot uses to read as a bevelled edge. */
+  background:
+    linear-gradient(155deg,#48484f 0%,#313138 16%,#1a1a1e 46%,#242429 74%,#3a3a41 100%);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.09) inset,          /* top rim catching light */
+    0 -1.5px 0 rgba(0,0,0,.5) inset,               /* bottom rim in shadow */
+    0 0 0 1px rgba(0,0,0,.6),
+    0 30px 60px -18px rgba(0,0,0,.75),             /* close contact shadow */
+    0 70px 120px -30px rgba(0,0,0,.6);             /* long cast shadow */
+  opacity:0;animation:phoneIn 1.15s .3s cubic-bezier(.16,1,.3,1) forwards;
 }
-@keyframes phoneIn{from{opacity:0;transform:translateY(46px) scale(.97)}to{opacity:1;transform:none}}
-.screen{position:relative;border-radius:32px;overflow:hidden;background:var(--bg);padding:14px 13px 8px}
-.notch{
-  position:absolute;top:9px;left:50%;transform:translateX(-50%);
-  width:96px;height:22px;border-radius:100px;background:#000;z-index:3;
+@keyframes phoneIn{
+  from{opacity:0;transform:var(--tilt) translateY(50px) scale(.96)}
+  to{opacity:1;transform:var(--tilt)}
 }
-.statusbar{
-  display:flex;justify-content:space-between;align-items:center;
-  font:500 10.5px/1 var(--mono);color:var(--dim);margin-bottom:16px;padding:0 4px;
-}
-.statusbar .bars{display:flex;gap:2.5px;align-items:flex-end}
-.statusbar .bars i{width:2.5px;background:var(--dim);border-radius:1px;display:block}
+/* The contact shadow lives on the ground plane, not on the phone, so it does
+   not rotate into the same perspective — a real dropped shadow stays flat
+   under a tilted object instead of tilting with it.
 
-.ph-hdr{display:flex;align-items:baseline;justify-content:space-between;margin:0 2px 13px}
-.ph-hdr h4{font-size:12px;letter-spacing:.04em}
-.ph-hdr .date{font:400 10.5px/1 var(--mono);color:var(--dim)}
+   A pure-black shadow is invisible against a background that is already
+   near-black — there's nothing darker to fall to. So this is two layers: a
+   faint lightened halo standing in for a lit floor, with the shadow itself
+   pooling inside that halo. The darkening only reads because the ground
+   around it was lightened first. */
+.phone-shadow{
+  position:absolute;left:50%;bottom:clamp(24px,5vw,50px);
+  width:min(340px,76vw);height:80px;transform:translateX(-50%);
+  background:
+    radial-gradient(ellipse 46% 100% at center,rgba(0,0,0,.65),transparent 72%),
+    radial-gradient(ellipse 88% 100% at center,rgba(232,230,225,.05),transparent 76%);
+  filter:blur(9px);z-index:1;opacity:0;
+  animation:shadowIn 1.15s .5s cubic-bezier(.16,1,.3,1) forwards;
+}
+/* The thin bright line a real surface throws right where a glossy object
+   touches it — the detail that reads as "resting on something" rather than
+   "shadow floating near something". */
+.phone-shadow::after{
+  content:"";position:absolute;left:14%;right:14%;top:2px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,230,225,.22),transparent);
+}
+@keyframes shadowIn{from{opacity:0;transform:translateX(-50%) scaleX(.7)}to{opacity:1;transform:translateX(-50%) scaleX(1)}}
 
-.plates{display:flex;gap:4px;justify-content:space-between;margin:0 2px 14px}
-.plate{
-  flex:1;aspect-ratio:1;max-width:34px;border-radius:50%;
-  display:grid;place-items:center;position:relative;
-  font:700 10px/1 var(--mono);color:var(--bg);opacity:.34;
-  box-shadow:inset 0 0 0 3px rgba(0,0,0,.28),inset 0 0 0 8px rgba(255,255,255,.06);
+/* The screen. Aspect ratio is the iPhone 15's real 393 x 852 pt, so the
+   screenshot sits in it at exactly the proportions it was captured at —
+   any other ratio would letterbox or crop the app's own layout. */
+.screen{
+  position:relative;border-radius:34px;overflow:hidden;background:#000;
+  aspect-ratio:393/852;
 }
-.plate.done{opacity:.85}
-.plate.cur{opacity:1}
-.plate.cur::after{
-  content:"";position:absolute;inset:-5px;border-radius:50%;
-  border:2px solid rgba(255,255,255,.55);animation:ringPulse 1.7s ease-out infinite;
+.app-shot{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:top center;
 }
-@keyframes ringPulse{0%{transform:scale(.8);opacity:.9}75%,100%{transform:scale(1.3);opacity:0}}
-.plate.rest{
-  background:var(--card2);color:var(--dim);opacity:1;
-  box-shadow:none;border:1.5px dashed var(--faint);
+/* Glass glare: a soft diagonal band of light crossing the display, as if a
+   studio light were catching its coating. Above the screenshot, below the
+   Dynamic Island, and never interactive. */
+.screen::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(115deg,
+    rgba(255,255,255,.055) 0%,rgba(255,255,255,.018) 15%,
+    transparent 30%,transparent 70%,
+    rgba(255,255,255,.03) 84%,transparent 100%);
+  mix-blend-mode:screen;
 }
-.pcheck{
-  position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;
-  background:var(--ok);color:#0d1a10;font:700 9px/1 var(--sans);
-  display:grid;place-items:center;box-shadow:0 0 0 1.5px var(--bg);
+/* ---- placeholder slot ----------------------------------------------------
+   Stands in for the supplied phone mockup. It states the exact size the slot
+   wants rather than just being an empty grey box, so the artwork that replaces
+   it can be produced to fit without measuring anything. The glare and the
+   Dynamic Island are suppressed while it is showing: both are lighting and
+   hardware detail that only make sense over a real screenshot. */
+.screen.is-placeholder::before{content:none}
+.shot-slot{
+  position:absolute;inset:10px;border-radius:26px;
+  border:1.5px dashed var(--acc-line);
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(201,138,75,.05) 0 10px, transparent 10px 20px),
+    var(--card);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  text-align:center;padding:20px;
+}
+.shot-slot .mk{--mk:44px;margin:0 auto 6px}
+.shot-slot b{
+  font:800 15px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.02em;color:var(--text);
+}
+.shot-slot .dim{font:500 11.5px/1.5 var(--mono);color:var(--dim);letter-spacing:.04em}
+.shot-slot .hint{
+  margin-top:10px;padding:5px 11px;border-radius:100px;
+  border:1px solid var(--acc-line);background:var(--acc-soft);
+  font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc);
 }
 
-.ph-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-  padding:11px 12px;margin-bottom:9px;
+/* The iPhone 15 has a Dynamic Island, not a notch — a free-floating pill
+   inset from the top edge rather than a cut-out hanging off it. */
+.island{
+  position:absolute;top:2.4%;left:50%;transform:translateX(-50%);
+  width:31%;aspect-ratio:125/36;border-radius:100px;z-index:3;
+  background:#000;box-shadow:0 0 0 .5px rgba(255,255,255,.05);
 }
-.ph-card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:9px}
-.ph-card-h b{font:700 10.5px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase}
-.ph-card-h i{font:400 9.5px/1 var(--mono);color:var(--faint);font-style:normal}
-
-.set{
-  display:grid;grid-template-columns:14px 1fr 1fr 22px;gap:7px;align-items:center;
-  padding:6px 0;border-top:1px solid var(--line);
-}
-.set:first-of-type{border-top:0}
-.set .n{font:400 9.5px/1 var(--mono);color:var(--faint)}
-.set .v{
-  background:var(--card2);border:1px solid var(--line);border-radius:6px;
-  padding:5px 0;text-align:center;font:500 11px/1 var(--mono);color:var(--text);
-}
-.set .chk{
-  width:19px;height:19px;border-radius:6px;border:1.5px solid var(--line);
-  display:grid;place-items:center;font-size:10px;color:transparent;
-}
-.set.on .chk{background:var(--ok);border-color:var(--ok);color:#0d1a10}
-.set.on .v{color:var(--dim)}
-
-.ph-grade{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  padding:10px 12px;border-radius:var(--r);
-  border:1px solid var(--acc-line);
-  background:linear-gradient(180deg,var(--acc-soft),transparent);
-}
-.ph-grade span{font:400 10px/1.4 var(--sans);color:var(--dim);max-width:19ch}
-.ph-grade b{font:900 24px/1 var(--disp);color:var(--acc)}
-
-.ph-nav{
-  display:flex;justify-content:space-between;padding:9px 6px 4px;
-  border-top:1px solid var(--line);margin-top:11px;
-}
-.ph-nav i{
-  font-style:normal;font:500 8.5px/1 var(--mono);letter-spacing:.05em;
-  text-transform:uppercase;color:var(--faint);
-}
-.ph-nav i.on{color:var(--acc)}
 
 /* the floating annotation cards */
 .float{
@@ -404,6 +431,11 @@ header.stuck{border-bottom-color:var(--line)}
     display:grid;gap:10px;width:100%;max-width:560px;margin-top:26px;
     grid-template-columns:repeat(auto-fit,minmax(224px,1fr));
   }
+  /* The 3D tilt reads as depth when the phone has room to sit at an angle
+     beside its annotations. Stacked single-column, that same tilt just looks
+     like a crooked screenshot, so it settles flat once the layout stacks. */
+  :root{--tilt:none}
+  .phone-shadow{width:min(240px,64vw);height:38px}
 }
 @media (min-width:941px){.stage .floats{display:contents}}
 
@@ -449,7 +481,7 @@ header.stuck{border-bottom-color:var(--line)}
 .cell::before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
   transition:opacity .3s ease;
-  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(198,93,58,.13),transparent 68%);
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(201,138,75,.13),transparent 68%);
 }
 .cell:hover::before{opacity:1}
 /* Corner brackets, borrowed from the app's frame motif. */
@@ -514,7 +546,7 @@ header.stuck{border-bottom-color:var(--line)}
 .col.mine{border-color:var(--acc-line)}
 .col-h{display:flex;align-items:center;gap:11px;padding:19px 20px;border-bottom:1px solid var(--line)}
 .col.mine .col-h{background:linear-gradient(180deg,var(--acc-soft),transparent)}
-.col-h .tile{width:30px;height:30px;--tile-sym:13px;--tile-z:7px;border-width:1.5px}
+.col-h .mk{--mk:28px}
 .col-h .ico{
   width:30px;height:30px;border-radius:var(--r-sm);display:grid;place-items:center;
   border:1.5px solid var(--faint);color:var(--faint);
@@ -655,7 +687,7 @@ header.stuck{border-bottom-color:var(--line)}
 .cta{text-align:center;position:relative;overflow:hidden}
 .cta .glow{
   position:absolute;left:50%;top:50%;width:960px;height:640px;transform:translate(-50%,-50%);
-  background:radial-gradient(ellipse at center,rgba(198,93,58,.15),transparent 68%);
+  background:radial-gradient(ellipse at center,rgba(201,138,75,.15),transparent 68%);
   pointer-events:none;animation:drift2 13s ease-in-out infinite alternate;
 }
 @keyframes drift2{
@@ -669,11 +701,7 @@ header.stuck{border-bottom-color:var(--line)}
   opacity:.028;pointer-events:none;user-select:none;letter-spacing:-.04em;
 }
 .cta .wrap{z-index:1}
-.cta .tile{width:78px;height:78px;--tile-sym:33px;--tile-z:12px;margin:0 auto 30px;padding-bottom:14px}
-.cta .tile em{
-  position:absolute;left:0;right:0;bottom:6px;text-align:center;
-  font-style:normal;font:400 9px/1 var(--mono);color:var(--faint);
-}
+.cta .mk{--mk:76px;margin:0 auto 30px}
 .cta h2{font-size:clamp(32px,5.4vw,62px);margin-bottom:20px;letter-spacing:-.025em;line-height:.98}
 .cta p{color:var(--dim);max-width:48ch;margin:0 auto 34px;font-size:16.5px}
 .cta .hero-note{margin-top:28px}
@@ -708,7 +736,134 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--car
     animation-duration:.001ms!important;animation-iteration-count:1!important;
     transition-duration:.001ms!important;
   }
-  .line>span,.hero p.lede,.hero-btns,.hero-note,.phone,.float{opacity:1;transform:none}
+  .line>span,.hero p.lede,.hero-btns,.hero-note,.float{opacity:1;transform:none}
+  /* The phone's tilt is a held pose, not motion — only the slide-and-fade
+     entrance is what reduced motion asks to skip, so this keeps the pose
+     rather than flattening the device. */
+  .phone{opacity:1;transform:var(--tilt)}
   .rv{opacity:1;transform:none}
   .mq-track{animation:none}
+}
+
+/* ---------- purchase page ---------------------------------------------- */
+.buy{padding-top:clamp(52px,7vw,88px);overflow:hidden}
+.buy .glow{
+  position:absolute;left:50%;top:-320px;width:1100px;height:760px;transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(201,138,75,.16),transparent 66%);
+  pointer-events:none;animation:drift 15s ease-in-out infinite alternate;
+}
+.buy .wrap{z-index:1}
+.buy-head{text-align:center;max-width:720px;margin:0 auto 34px}
+.buy-head h1{font-weight:900;font-size:clamp(34px,5.6vw,64px);letter-spacing:-.025em;line-height:.98;margin-bottom:18px}
+.buy-head h1 em{font-style:normal;color:var(--faint)}
+.buy-head p{color:var(--dim);font-size:17px;margin:0 auto;max-width:46ch}
+
+/* billing period switch */
+.period{
+  display:flex;gap:4px;margin:0 auto 26px;width:max-content;padding:4px;
+  border:1px solid var(--line);border-radius:100px;background:var(--card);
+}
+.period button{
+  display:flex;align-items:center;gap:7px;
+  padding:10px 20px;border:0;border-radius:100px;background:transparent;color:var(--dim);
+  font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  transition:background .2s ease,color .2s ease;
+}
+.period button.on{background:var(--acc);color:#12100f;font-weight:600}
+.period button i{
+  font-style:normal;font-size:10px;letter-spacing:.06em;
+  padding:3px 7px;border-radius:100px;background:var(--acc-soft);color:var(--acc);
+}
+.period button.on i{background:rgba(0,0,0,.22);color:#12100f}
+.period button i:empty{display:none}
+
+/* the plan card */
+.plan{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  border:1px solid var(--acc-line);border-radius:var(--r);overflow:hidden;
+  background:var(--card);max-width:1000px;margin:0 auto;
+}
+@media (max-width:860px){.plan{grid-template-columns:1fr}}
+.plan-main{
+  padding:clamp(28px,4vw,40px);text-align:center;
+  background:linear-gradient(180deg,var(--acc-soft),transparent 60%);
+  border-right:1px solid var(--line);
+}
+@media (max-width:860px){.plan-main{border-right:0;border-bottom:1px solid var(--line)}}
+.plan-tag{
+  display:inline-block;margin-bottom:22px;padding:6px 13px;border-radius:100px;
+  border:1px solid var(--acc-line);background:var(--bg);
+  font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+}
+.plan-price{display:flex;align-items:baseline;justify-content:center;gap:3px;flex-wrap:wrap}
+.plan-price .cur{font:800 26px/1 var(--disp);color:var(--text);align-self:flex-start;margin-top:8px}
+.plan-price .amount{font:900 clamp(48px,7vw,76px)/1 var(--disp);color:var(--text);letter-spacing:-.03em}
+.plan-price .per{font:400 13px/1 var(--mono);color:var(--dim);margin-left:6px}
+/* Unset price: reads as a state, not as a number. */
+body.price-unset .plan-price .amount{
+  font:600 17px/1.3 var(--mono);color:var(--faint);letter-spacing:.04em;
+}
+.plan-billed{margin:14px 0 22px;color:var(--dim);font-size:13.5px}
+.plan-main .btn{width:100%}
+.btn.is-disabled{
+  background:var(--card2);color:var(--faint);border-color:var(--line);
+  cursor:not-allowed;box-shadow:none;
+}
+.btn.is-disabled:hover{filter:none;box-shadow:none}
+.btn.is-disabled::after{display:none}
+.plan-note{margin:14px 0 0;color:var(--faint);font:400 12px/1.5 var(--mono)}
+
+.assure{list-style:none;margin:26px 0 0;padding:22px 0 0;border-top:1px solid var(--line);text-align:left}
+.assure li{display:flex;gap:10px;margin-bottom:11px;color:var(--dim);font-size:13.5px;line-height:1.5}
+.assure li:last-child{margin-bottom:0}
+.assure .tick{
+  flex:none;width:17px;height:17px;border-radius:50%;margin-top:2px;
+  display:grid;place-items:center;background:var(--acc-soft);color:var(--acc);font-size:9px;font-weight:700;
+}
+
+.plan-side{padding:clamp(28px,4vw,40px)}
+.plan-side h2{font-size:15px;margin-bottom:20px;color:var(--acc)}
+.includes{list-style:none;margin:0;padding:0}
+.includes li{
+  padding:14px 0;border-top:1px solid var(--line);
+  color:var(--dim);font-size:14px;line-height:1.55;
+}
+.includes li:first-child{border-top:0;padding-top:0}
+.includes li b{display:block;color:var(--text);font-weight:600;margin-bottom:3px;font-size:14.5px}
+
+/* ---------- post-purchase page ------------------------------------------ */
+.thanks{max-width:640px;margin:0 auto;text-align:center}
+.thanks h1{font-weight:900;font-size:clamp(34px,5.4vw,58px);letter-spacing:-.025em;margin-bottom:18px}
+.thanks .lede{color:var(--dim);font-size:16.5px;line-height:1.62;margin:0 auto 30px;max-width:46ch}
+.thanks .btn{min-width:270px}
+.seal{
+  width:62px;height:62px;border-radius:50%;margin:0 auto 24px;
+  display:grid;place-items:center;color:var(--acc);
+  background:var(--acc-soft);border:1px solid var(--acc-line);
+  animation:sealIn .6s cubic-bezier(.34,1.4,.64,1) both;
+}
+.seal svg{width:26px;height:26px}
+@keyframes sealIn{from{transform:scale(.5);opacity:0}to{transform:none;opacity:1}}
+
+/* The first-run steps are a real sequence — you cannot save the recovery key
+   before the file exists — so they are numbered, and the numbers mean it. */
+.firstrun{
+  list-style:none;counter-reset:step;margin:38px 0 0;padding:26px 0 0;
+  border-top:1px solid var(--line);text-align:left;
+}
+.firstrun li{
+  counter-increment:step;position:relative;
+  padding:0 0 18px 46px;color:var(--dim);font-size:14.5px;line-height:1.55;
+}
+.firstrun li:last-child{padding-bottom:0}
+.firstrun li::before{
+  content:counter(step,decimal-leading-zero);
+  position:absolute;left:0;top:1px;
+  font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--acc);
+  padding:5px 7px;border-radius:5px;background:var(--acc-soft);border:1px solid var(--acc-line);
+}
+.firstrun li b{display:block;color:var(--text);font-weight:600;margin-bottom:3px;font-size:15px}
+.receipt{
+  margin:30px 0 0;color:var(--faint);
+  font:400 11px/1.5 var(--mono);word-break:break-all;
 }

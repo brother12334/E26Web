@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e0e10">
+<meta name="robots" content="noindex, nofollow">
+<title>You're in — Element 26</title>
+<meta name="description" content="Your Element 26 access and first-run instructions.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230e0e10'/%3E%3Cg transform='translate(50 50) scale(.6016) translate(-50 -52.249)'%3E%3Cellipse cx='50' cy='92' rx='34' ry='6' fill='%23c98a4b' opacity='.3'/%3E%3Cg transform='translate(0 -4) rotate(-25 50 50)' fill='%23c98a4b'%3E%3Crect x='26' y='44' width='48' height='12'/%3E%3Cpolygon points='26,26 44,38 44,62 26,74 8,62 8,38'/%3E%3Cpolygon points='74,26 92,38 92,62 74,74 56,62 56,38'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- THE MARK, defined once and reused by <use>: the same glyph the app defines
+     as #e26-mark, so the site and the product cannot drift apart. Two hexagonal
+     plates on a tilted bar over a ground-contact ellipse, all in currentColor. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="e26-mark" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="92" rx="34" ry="6" fill="currentColor" opacity="0.3"></ellipse>
+    <g transform="translate(0 -4) rotate(-25 50 50)">
+      <rect x="26" y="44" width="48" height="12" fill="currentColor"></rect>
+      <polygon points="26,26 44,38 44,62 26,74 8,62 8,38" fill="currentColor"></polygon>
+      <polygon points="74,26 92,38 92,62 74,74 56,62 56,38" fill="currentColor"></polygon>
+    </g>
+  </symbol>
+</svg>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header id="hdr">
+  <div class="wrap hd">
+    <a class="brand" href="index.html" aria-label="Element 26, home">
+      <svg class="mk" aria-hidden="true"><use href="#e26-mark"></use></svg>
+      <span class="wm">Element&nbsp;<em>26</em></span>
+    </a>
+    <div class="hd-cta">
+      <a class="btn ghost" href="index.html"><span>Back to site</span></a>
+    </div>
+  </div>
+  <span id="prog" aria-hidden="true"></span>
+</header>
+
+<main id="top">
+<section class="buy">
+  <span class="glow" aria-hidden="true"></span>
+  <div class="wrap">
+
+    <!-- Shown when the visitor arrived from a completed Stripe checkout. -->
+    <div class="thanks" id="paid" hidden>
+      <span class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+      </span>
+      <span class="kick" style="justify-content:center">Payment received</span>
+      <h1>You're in.</h1>
+      <p class="lede">
+        Open Element 26, add it to your home screen, and it's there whenever you
+        train — full-screen, with its own icon, working offline.
+      </p>
+
+      <a class="btn" id="download" href="#">
+        <span>Open Element 26</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+      <p class="plan-note" id="dlNote">Runs in your browser &middot; installs to your home screen</p>
+
+      <ol class="firstrun">
+        <li><b>Add it to your home screen</b> On iPhone, tap Share then "Add to Home Screen". It opens full-screen from then on, with its own icon, and works with no signal.</li>
+        <li><b>Give it a name</b> It hands you a User ID and a recovery key. Save both — they're how your training is identified, and how you get it back.</li>
+        <li><b>Bring your plan, or use the one included</b> Import a programme from a PDF or a photo, or start on the six-day split it ships with.</li>
+      </ol>
+
+      <p class="receipt" id="receipt"></p>
+    </div>
+
+    <!-- Shown when somebody lands here without completing checkout. This is a
+         courtesy, NOT a paywall — see assets/success.js for why. -->
+    <div class="thanks" id="unpaid" hidden>
+      <span class="kick" style="justify-content:center">Nothing here yet</span>
+      <h1>No purchase found.</h1>
+      <p class="lede">
+        This page appears once a purchase goes through. If you've just paid and
+        landed here by mistake, get in touch and we'll get you straight in.
+      </p>
+      <a class="btn" href="buy.html"><span>Get Element 26 &mdash; $15</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-btm" style="margin-top:0;border-top:0;padding-top:0">
+      <span>&copy; <span id="yr">2026</span> Element 26</span>
+      <span>Element 26</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script src="assets/success.js"></script>
+</body>
+</html>

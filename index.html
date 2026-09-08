@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0e0e10">
 <title>Element 26 — The training log that reads what you lift</title>
-<meta name="description" content="Element 26 logs what you lift and reads it back to you: a grade on every session, the volume each of 38 muscle regions actually receives, and the one change worth making next time.">
+<meta name="description" content="Element 26 logs what you lift and reads it back to you: a grade on every session, the volume each of 36 muscle regions actually receives, and the one change worth making next time.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Element 26 — The training log that reads what you lift">
-<meta property="og:description" content="A grade on every session. Volume tracked across 38 muscle regions against real landmarks. Progression that comes from your own history.">
+<meta property="og:description" content="A grade on every session. Volume tracked across 36 muscle regions against real landmarks. Progression that comes from your own history.">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230e0e10'/%3E%3Crect x='9' y='9' width='82' height='82' rx='7' fill='none' stroke='%23c65d3a' stroke-width='4'/%3E%3Ctext x='20' y='34' font-family='monospace' font-size='17' fill='%23e8e6e1'%3E26%3C/text%3E%3Ctext x='50' y='72' font-family='monospace' font-size='40' font-weight='bold' fill='%23e8e6e1' text-anchor='middle'%3EFe%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230e0e10'/%3E%3Cg transform='translate(50 50) scale(.6016) translate(-50 -52.249)'%3E%3Cellipse cx='50' cy='92' rx='34' ry='6' fill='%23c98a4b' opacity='.3'/%3E%3Cg transform='translate(0 -4) rotate(-25 50 50)' fill='%23c98a4b'%3E%3Crect x='26' y='44' width='48' height='12'/%3E%3Cpolygon points='26,26 44,38 44,62 26,74 8,62 8,38'/%3E%3Cpolygon points='74,26 92,38 92,62 74,74 56,62 56,38'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,16 +20,30 @@
 </head>
 <body>
 
+<!-- THE MARK, defined once and reused by <use>: the same glyph the app defines
+     as #e26-mark, so the site and the product cannot drift apart. Two hexagonal
+     plates on a tilted bar over a ground-contact ellipse, all in currentColor. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="e26-mark" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="92" rx="34" ry="6" fill="currentColor" opacity="0.3"></ellipse>
+    <g transform="translate(0 -4) rotate(-25 50 50)">
+      <rect x="26" y="44" width="48" height="12" fill="currentColor"></rect>
+      <polygon points="26,26 44,38 44,62 26,74 8,62 8,38" fill="currentColor"></polygon>
+      <polygon points="74,26 92,38 92,62 74,74 56,62 56,38" fill="currentColor"></polygon>
+    </g>
+  </symbol>
+</svg>
+
 <div class="grain" aria-hidden="true"></div>
-<span class="rail l" aria-hidden="true">Fe &middot; 55.845 u</span>
-<span class="rail r" aria-hidden="true">Atomic number 26</span>
+<span class="rail l" aria-hidden="true">Train &middot; Log &middot; Read</span>
+<span class="rail r" aria-hidden="true">Element 26</span>
 
 <!-- ============================ HEADER ============================ -->
 <header id="hdr">
   <div class="wrap hd">
     <a class="brand" href="#top" aria-label="Element 26, home">
-      <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
-      <span class="wm">Element&nbsp;26</span>
+      <svg class="mk" aria-hidden="true"><use href="#e26-mark"></use></svg>
+      <span class="wm">Element&nbsp;<em>26</em></span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Main">
@@ -44,7 +58,7 @@
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-      <a class="btn" href="#get"><span>Start<span class="wide-only">&nbsp;training</span></span></a>
+      <a class="btn" href="buy.html"><span>Start<span class="wide-only">&nbsp;training</span></span></a>
     </div>
   </div>
   <span id="prog" aria-hidden="true"></span>
@@ -59,7 +73,7 @@
 
   <div class="wrap">
     <div class="hero-in">
-      <span class="eyebrow"><span class="dot"></span> Iron &middot; Fe &middot; <b>55.845</b></span>
+      <span class="eyebrow"><span class="dot"></span> Works offline &middot; <b>Install it like an app</b></span>
 
       <h1>
         <span class="line"><span>Stop logging sets.</span></span>
@@ -73,14 +87,14 @@
       </p>
 
       <div class="hero-btns">
-        <a class="btn" href="#get">
+        <a class="btn" href="buy.html">
           <span>Start training</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn ghost" href="#loop"><span>See how it works</span></a>
       </div>
 
-      <p class="hero-note">No email. No password. Four seconds to an account.</p>
+      <p class="hero-note">$15 once, not per month &middot; No email &middot; No password</p>
     </div>
 
     <!-- ---------------- the phone ---------------- -->
@@ -93,66 +107,46 @@
         </div>
         <div class="float f2" data-par="0.09">
           <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3.4l1.8-5.2 3 10.4 2-8.6 1.3 3.4H21"/></svg></span>
-          <b>38 muscle regions</b>
+          <b>36 muscle regions</b>
           <p>Every head of the triceps, quads, hamstrings and calves — measured against what you actually did.</p>
         </div>
         <div class="float f3" data-par="0.07">
           <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 8v4l3.3 2.2"/></svg></span>
-          <b>Rest, watched</b>
-          <p>The stopwatch runs itself between sets, and the grade knows whether you honoured the window.</p>
+          <b>Log it by voice</b>
+          <p>Say the set and it lands in the row — hands chalked, phone in your pocket, rest timer already running.</p>
         </div>
         <div class="float f4" data-par="0.11">
           <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3.5-4.5 3 3L20 7"/></svg></span>
-          <b>Stalls, caught early</b>
-          <p>Four weeks of flat numbers on a lift is a plateau. It says so before you've wasted the block.</p>
+          <b>The machine is taken</b>
+          <p>Swap to the version you can actually reach, for today only. Your programme is left exactly as written.</p>
         </div>
       </div>
 
+      <span class="phone-shadow" aria-hidden="true"></span>
+
       <div class="phone">
-        <span class="notch" aria-hidden="true"></span>
-        <div class="screen">
-          <div class="statusbar">
-            <span>9:41</span>
-            <span class="bars" aria-hidden="true">
-              <i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i>
-            </span>
-          </div>
+        <span class="btn-side btn-power" aria-hidden="true"></span>
+        <span class="btn-side btn-vol" aria-hidden="true"></span>
+        <span class="btn-side btn-vol2" aria-hidden="true"></span>
+        <!-- PLACEHOLDER — awaiting the supplied phone mockup.
+             To drop the real thing back in, replace this whole .screen block with:
 
-          <div class="ph-hdr">
-            <h4>Element 26</h4>
-            <span class="date">Thu 14 Aug</span>
-          </div>
+               <div class="screen">
+                 <img class="app-shot" src="assets/YOUR-MOCKUP.png"
+                      width="786" height="1704" alt="…">
+                 <span class="island" aria-hidden="true"></span>
+               </div>
 
-          <div class="plates" aria-hidden="true">
-            <span class="plate done" style="background:var(--chest)">PA<span class="pcheck">✓</span></span>
-            <span class="plate done" style="background:var(--back)">LA<span class="pcheck">✓</span></span>
-            <span class="plate done" style="background:var(--legs)">GA<span class="pcheck">✓</span></span>
-            <span class="plate cur"  style="background:#d18049">PB</span>
-            <span class="plate"      style="background:#54aabd">LB</span>
-            <span class="plate"      style="background:#9aa681">GB</span>
-            <span class="plate rest">R</span>
-          </div>
-
-          <div class="ph-card">
-            <div class="ph-card-h"><b>Incline DB Press</b><i>3 × 8–12 · RPE 8</i></div>
-            <div class="set on"><span class="n">1</span><span class="v">65 lb</span><span class="v">11</span><span class="chk">✓</span></div>
-            <div class="set on"><span class="n">2</span><span class="v">65 lb</span><span class="v">10</span><span class="chk">✓</span></div>
-            <div class="set"><span class="n">3</span><span class="v">65 lb</span><span class="v">—</span><span class="chk">✓</span></div>
-          </div>
-
-          <div class="ph-card">
-            <div class="ph-card-h"><b>Cable Fly</b><i>3 × 12–15 · RPE 9</i></div>
-            <div class="set"><span class="n">1</span><span class="v">30 lb</span><span class="v">—</span><span class="chk">✓</span></div>
-            <div class="set"><span class="n">2</span><span class="v">30 lb</span><span class="v">—</span><span class="chk">✓</span></div>
-          </div>
-
-          <div class="ph-grade">
-            <span>Last Push B — rest ran short on your top sets.</span>
-            <b>B+</b>
-          </div>
-
-          <div class="ph-nav" aria-hidden="true">
-            <i class="on">Today</i><i>History</i><i>Body</i><i>Program</i><i>Settings</i>
+             The frame is locked to the iPhone 15's 393:852 ratio, so any
+             screenshot at that ratio drops in without cropping or stretching.
+             assets/app-screen.png is the previous real capture, kept for reference. -->
+        <div class="screen is-placeholder">
+          <div class="shot-slot">
+            <svg class="mk" aria-hidden="true"><use href="#e26-mark"></use></svg>
+            <b>Phone mockup</b>
+            <span class="dim">393 &times; 852 pt</span>
+            <span class="dim">1179 &times; 2556 px @3&times;</span>
+            <span class="hint">Drop-in slot</span>
           </div>
         </div>
       </div>
@@ -165,10 +159,10 @@
   <div class="mq-track">
     <span>Progressive overload</span><span>Hard sets per week</span><span>Estimated 1RM</span>
     <span>MEV &middot; MAV &middot; MRV</span><span>Stall detection</span><span>Rest windows</span>
-    <span>38 muscle regions</span><span>Session grade</span><span>PR tracking</span>
+    <span>36 muscle regions</span><span>Session grade</span><span>PR tracking</span>
     <span>Progressive overload</span><span>Hard sets per week</span><span>Estimated 1RM</span>
     <span>MEV &middot; MAV &middot; MRV</span><span>Stall detection</span><span>Rest windows</span>
-    <span>38 muscle regions</span><span>Session grade</span><span>PR tracking</span>
+    <span>36 muscle regions</span><span>Session grade</span><span>PR tracking</span>
   </div>
 </div>
 
@@ -176,9 +170,9 @@
 <section class="specs" style="padding-top:clamp(48px,6vw,72px);padding-bottom:0">
   <div class="wrap">
     <div class="specs-grid rv">
-      <div class="spec"><b><span class="count" data-to="38">0</span></b><span>Muscle regions</span></div>
-      <div class="spec"><b><span class="count" data-to="26">0</span></b><span>Atomic number</span></div>
-      <div class="spec"><b><span class="count" data-to="3">0</span></b><span>Volume landmarks</span></div>
+      <div class="spec"><b><span class="count" data-to="36">0</span></b><span>Muscle regions</span></div>
+      <div class="spec"><b><span class="count" data-to="6">0</span></b><span>Day rotation, built in</span></div>
+      <div class="spec"><b>$<span class="count" data-to="15">0</span></b><span>Once, not per month</span></div>
       <div class="spec"><b><span class="count" data-to="0">0</span></b><span>Emails required</span></div>
     </div>
   </div>
@@ -201,13 +195,13 @@
         <h3>Sessions that grade themselves</h3>
         <p>
           Every workout is scored against the last time you did the same lifts — load,
-          reps, effort, and whether you actually rested between sets. You get a grade,
-          a breakdown of where the points went, and the single change worth making
-          next time. Not a wall of statistics: one instruction, on the screen you open
-          before you train.
+          reps, effort, and whether you actually rested between sets. You get a grade, a
+          breakdown of where the points went, and the single change worth making next
+          time. And when a lift came in lower for a reason that isn't regression, it
+          says so instead of marking you down for it.
         </p>
         <div class="demo chips">
-          <span class="chip on">B+ · 87%</span><span class="chip">Load +2</span>
+          <span class="chip on">A− · 92%</span><span class="chip">Load +2</span>
           <span class="chip">Reps +1</span><span class="chip">Rest −0.8</span>
         </div>
       </div>
@@ -216,35 +210,32 @@
         <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3.4l1.8-5.2 3 10.4 2-8.6 1.3 3.4H21"/></svg></span>
         <h3>Volume you can see</h3>
         <p>
-          Hard sets per muscle per week — the unit the research is written in — laid
-          against minimum effective, maximum adaptive and maximum recoverable volume.
-          Sit under the line two weeks running and the muscle gets flagged.
+          Hard sets per muscle per week — the unit the research is written in — across 36
+          regions, laid against minimum effective, maximum adaptive and maximum
+          recoverable volume, adjusted for your training age.
         </p>
       </div>
 
       <div class="cell rv">
-        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 8v4l3.3 2.2"/></svg></span>
-        <h3>Rest, timed and judged</h3>
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.4"/><path d="M10 18.5h4"/></svg></span>
+        <h3>A screen for under the bar</h3>
         <p>
-          The stopwatch starts itself the moment you tick a set. Come back too early
-          and the grade knows — because two minutes short on a top set is the reason
-          the next one moved backwards.
+          The Workout tab is deliberately thin: the day, how long it has run, and your sets.
+          Focus mode strips it further to the set in front of you. Everything else — the
+          rotation, tomorrow's preview — is a question about the plan, and none of those
+          are questions you have mid-set.
         </p>
-        <div class="demo timer">
-          <span class="ring" aria-hidden="true"><b>2:04</b></span>
-          <p>Ideal window <b style="color:var(--text)">2:00–3:00</b></p>
-        </div>
       </div>
 
       <div class="cell wide rv">
         <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3.5-4.5 3 3L20 7"/></svg></span>
         <h3>Progression it can defend</h3>
         <p>
-          Load suggestions come from your own history, not a formula applied blind. It
-          spots stalls, calibrates a starting weight on any lift with no baseline, and
-          keeps a change log of every edit you make to your programme — so when a rep
-          range moves from 6–10 to 12–15 and your estimated 1RM drops by design, the
-          grade knows that isn't you going backwards.
+          Load suggestions come from your own history, not a formula applied blind. It spots
+          stalls, calibrates a starting weight on any lift with no baseline, and keeps a
+          change log of every edit you make to your programme — so when a rep range moves
+          from 6–10 to 12–15 and your estimated 1RM drops by design, the grade knows that
+          isn't you going backwards.
         </p>
         <div class="demo spark" aria-hidden="true">
           <i data-h="38"></i><i data-h="46"></i><i data-h="42"></i><i data-h="58"></i>
@@ -254,35 +245,57 @@
       </div>
 
       <div class="cell rv">
-        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v-6M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg></span>
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span>
+        <h3>Say the set</h3>
+        <p>
+          Hands chalked, phone in your pocket. Speak the weight and reps and they land in the
+          row, with the rest timer already running.
+        </p>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3.2-3.2M20 16H7l3.2 3.2"/></svg></span>
+        <h3>When the machine is taken</h3>
+        <p>
+          Somebody is on the pec deck for another twenty minutes. Swap to the version you can
+          reach — for today only. Your programme is not edited, because a busy gym says
+          nothing about next week.
+        </p>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l5 5-5 5"/><path d="M12 12h8"/><path d="M12 6h8M12 18h8"/></svg></span>
+        <h3>It knows when to back off</h3>
+        <p>
+          Deloads are offered on the calendar and on the evidence — your check-ins, your RPE
+          and your loads. Warm-ups, supersets, dropsets and weaker-side caps are all
+          handled in the same rows.
+        </p>
+      </div>
+
+      <div class="cell wide rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.6-7 8.5-4.1-.9-7-4.3-7-8.5V6z"/><path d="M9.2 12l2 2 3.6-3.8"/></svg></span>
+        <h3>Yours, and it stays yours</h3>
+        <p>
+          No email, no password, no signing in with anyone else's account — a name gets you a
+          User ID and a recovery key. It installs to your home screen and runs offline,
+          several people can keep separate logs in one app, and your whole history exports
+          as a file, or prints as a report for a coach or a physio.
+        </p>
+      </div>
+
+      <div class="cell rv">
+        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 17v-6M12 8h.01"/></svg></span>
         <h3>No jargon left standing</h3>
         <p>
-          Every technical term is underlined. Tap it and you get a plain-English entry
-          — what it means, and why it changes what you do.
+          Every technical term is underlined. Tap it for a plain-English entry — what it
+          means, and why it changes what you do.
         </p>
         <div class="demo termdemo">
           Keep this lift near <span class="term" title="RPE — how hard a set felt, on a scale where 10 means you could not have done another rep.">RPE&nbsp;8</span>, or roughly two reps in reserve.
         </div>
       </div>
 
-      <div class="cell rv">
-        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="7" rx="1"/><rect x="4" y="10" width="16" height="7" rx="2"/><rect x="7" y="15" width="10" height="6" rx="1"/></svg></span>
-        <h3>Reports worth printing</h3>
-        <p>
-          Your whole programme, or your whole history, laid out as a document you can
-          hand to a coach or a physio — including what each muscle receives per cycle.
-        </p>
-      </div>
-
-      <div class="cell rv">
-        <span class="cic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
-        <h3>An account that asks for nothing</h3>
-        <p>
-          No email, no password, no sign-in with anything. You give it a name; it gives
-          you an ID and a recovery key. If you'd rather nothing left the device at all,
-          it doesn't have to.
-        </p>
-      </div>
     </div>
   </div>
 </section>
@@ -307,29 +320,33 @@
       <div class="col rv">
         <div class="col-h">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v16H4zM8 3v4M16 3v4M8 12h8M8 16h5"/></svg></span>
-          <span><b>A typical log</b><i>Notebook, notes app, spreadsheet</i></span>
+          <span><b>A typical log</b><i>Notebook, spreadsheet, subscription tracker</i></span>
         </div>
-        <div class="row"><span class="lbl">After the session</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Nothing happens</span></div>
+        <div class="row"><span class="lbl">After the session</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Stored, not read</span></div>
         <div class="row"><span class="lbl">Volume per muscle</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>You guess</span></div>
         <div class="row"><span class="lbl">Weak points</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Found in the mirror</span></div>
         <div class="row"><span class="lbl">Next session's load</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Gut feel</span></div>
         <div class="row"><span class="lbl">Hitting a plateau</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Noticed months late</span></div>
         <div class="row"><span class="lbl">Rest between sets</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Untracked</span></div>
+        <div class="row"><span class="lbl">Gym with no signal</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Spinner</span></div>
         <div class="row"><span class="lbl">Sign-up</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Email + password</span></div>
+        <div class="row"><span class="lbl">What it costs</span><span class="val no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Every month, forever</span></div>
       </div>
 
       <div class="col mine rv">
         <div class="col-h">
-          <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
+          <svg class="mk" aria-hidden="true"><use href="#e26-mark"></use></svg>
           <span><b>Element 26</b><i>Reads it back to you</i></span>
         </div>
         <div class="row"><span class="lbl">After the session</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Graded, with advice</span></div>
-        <div class="row"><span class="lbl">Volume per muscle</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>38 regions, counted</span></div>
+        <div class="row"><span class="lbl">Volume per muscle</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>36 regions, counted</span></div>
         <div class="row"><span class="lbl">Weak points</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Flagged under MEV</span></div>
         <div class="row"><span class="lbl">Next session's load</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>From your history</span></div>
         <div class="row"><span class="lbl">Hitting a plateau</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Called at four weeks</span></div>
         <div class="row"><span class="lbl">Rest between sets</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Timed and graded</span></div>
+        <div class="row"><span class="lbl">Gym with no signal</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Works offline</span></div>
         <div class="row"><span class="lbl">Sign-up</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>A name. That's it</span></div>
+        <div class="row"><span class="lbl">What it costs</span><span class="val yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>$15, once</span></div>
       </div>
     </div>
   </div>
@@ -345,7 +362,7 @@
       <h2 class="sec-h rv">Find the muscle<br><em>you've been missing</em></h2>
       <p class="sec-p rv">
         Element 26 attributes every set you log to the regions it actually trains — all
-        38 of them, down to each head of the triceps, quads, hamstrings and calves. Then
+        36 of them, down to each head of the triceps, quads, hamstrings and calves. Then
         it counts them in hard sets per week and lays that against the volume landmarks
         the training research is written in.
       </p>
@@ -424,9 +441,9 @@
         <span class="no">STEP 01</span>
         <h3>Open Today</h3>
         <p>
-          Your split is already on a rotation — six-day push / pull / legs A and B out
-          of the box, or whatever you build in the Program tab. The app knows which day
-          you're on, and what you lifted last time you were here.
+          Your split is already on a rotation, and the app knows which day you're on. A
+          short preflight asks how you slept and how the body feels, then hands you the
+          day — with the one change your last session earned already on the card.
         </p>
       </div>
       <div class="step rv">
@@ -434,9 +451,10 @@
         <span class="no">STEP 02</span>
         <h3>Log the sets</h3>
         <p>
-          Weight, reps, and one tap for how hard it felt. The rest timer starts itself
-          when you tick a set. Warm-ups, supersets and alternating movements are all
-          handled in the same rows — nothing to set up mid-workout.
+          Weight, reps, and one tap for how hard it felt — or just say it out loud. The
+          rest timer starts itself. Warm-ups, supersets, dropsets and weaker-side caps
+          are handled in the same rows, and if the machine is taken you can swap it for
+          today without touching the plan.
         </p>
       </div>
       <div class="step rv">
@@ -445,8 +463,8 @@
         <h3>Read what comes back</h3>
         <p>
           A grade the moment you finish, with the one change worth making. Your muscle
-          map updates as the sets land, your estimated 1RMs move, and any lift that has
-          gone four weeks without progress gets called out.
+          map updates as the sets land, your estimated 1RMs move, stalled lifts get
+          called out — and at the end of a cycle the whole block is played back to you.
         </p>
       </div>
     </div>
@@ -519,7 +537,22 @@
 
       <details class="q rv">
         <summary>Does it work offline?</summary>
-        <div class="a"><p>Yes. Gym basements are the normal case, not the edge case. Everything you log is written locally first, and syncing is something the app does when it can rather than something it needs to function.</p></div>
+        <div class="a"><p>Yes. Gym basements are the normal case, not the edge case. Everything you log is written locally first, and syncing is something the app does when it can rather than something it needs to function — the app is even built so a missing font can't stop it starting.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Is it an app I install?</summary>
+        <div class="a"><p>It runs in your browser and installs to your home screen, where it opens full-screen with its own icon and no address bar. There's no app store, no review queue, and no separate build per platform.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>Can I keep more than one person's log?</summary>
+        <div class="a"><p>Yes. Several profiles live side by side in one app — you, plus anyone you coach. Each keeps its own data and its own sync, so nothing bleeds between them, and switching is instant and works offline.</p></div>
+      </details>
+
+      <details class="q rv">
+        <summary>How much is it?</summary>
+        <div class="a"><p>$15, paid once, for one person — not $15 a month. There's no renewal, no tier above it and no feature held back, and updates come with it. That's the entire commercial arrangement.</p></div>
       </details>
 
       <details class="q rv">
@@ -535,14 +568,14 @@
   <span class="glow" aria-hidden="true"></span>
   <span class="mark" aria-hidden="true">Fe</span>
   <div class="wrap">
-    <span class="tile rv" aria-hidden="true"><i>26</i><b>Fe</b><em>55.845</em></span>
+    <svg class="mk rv" aria-hidden="true"><use href="#e26-mark"></use></svg>
     <h2 class="rv">Iron sharpens iron.<br>Data sharpens both.</h2>
     <p class="rv">
       Log your sets. Let the app do the reading — and find out what your training has
       been telling you all along.
     </p>
     <div class="hero-btns rv" style="opacity:1;animation:none">
-      <a class="btn" href="#">
+      <a class="btn" href="buy.html">
         <span>Start training</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
       </a>
@@ -560,8 +593,8 @@
     <div class="ft">
       <div class="ft-brand">
         <a class="brand" href="#top">
-          <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
-          <span class="wm">Element&nbsp;26</span>
+          <svg class="mk" aria-hidden="true"><use href="#e26-mark"></use></svg>
+          <span class="wm">Element&nbsp;<em>26</em></span>
         </a>
         <p>A training log that reads what you lift and tells you what to change.</p>
       </div>
@@ -588,7 +621,7 @@
       <div>
         <h4>Element</h4>
         <ul>
-          <li><a href="#get">Get started</a></li>
+          <li><a href="buy.html">Get started</a></li>
           <li><a href="#faq">Privacy</a></li>
           <li><a href="#faq">Support</a></li>
         </ul>
@@ -597,7 +630,7 @@
 
     <div class="ft-btm">
       <span>&copy; <span id="yr">2026</span> Element 26</span>
-      <span>Fe &middot; 26 &middot; 55.845 u</span>
+      <span>Element 26</span>
     </div>
   </div>
 </footer>

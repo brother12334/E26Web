@@ -1,0 +1,4 @@
+# The zip is just a bundle of the PNGs sitting beside it — tracking both
+# doubles the repo weight for no benefit. Rebuild it with:
+#   cd screenshots && zip element26-screenshots.zip *.png
+screenshots/*.zip
