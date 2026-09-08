@@ -2,7 +2,7 @@
    ELEMENT 26 — post-purchase page
 
    ────────────────────────────────────────────────────────────────────────
-   SET `DOWNLOAD_URL` BELOW. See SETUP-STRIPE.md for where to host the file.
+   SET `APP_URL` BELOW — where the app itself is served.
    ────────────────────────────────────────────────────────────────────────
 
    READ THIS BEFORE TRUSTING IT:
@@ -25,8 +25,7 @@
 (function () {
   "use strict";
 
-  var DOWNLOAD_URL = "";   // ← the hosted app file, e.g. an R2/S3 link
-  var FILE_NAME    = "element-26.html";
+  var APP_URL = "";        // ← where the app is served, e.g. "https://element26.app/"
 
   var $ = function (s) { return document.querySelector(s); };
 
@@ -51,17 +50,15 @@
 
   paid.hidden = false;
 
-  if (DOWNLOAD_URL) {
-    dl.setAttribute("href", DOWNLOAD_URL);
-    dl.setAttribute("download", FILE_NAME);
+  if (APP_URL) {
+    dl.setAttribute("href", APP_URL);
   } else {
     // Better an obviously unfinished button than one that 404s a paying customer.
     dl.classList.add("is-disabled");
     dl.setAttribute("aria-disabled", "true");
-    dl.removeAttribute("download");
     dl.addEventListener("click", function (e) { e.preventDefault(); });
-    dl.querySelector("span").textContent = "Download link not set";
-    dlNote.textContent = "Set DOWNLOAD_URL in assets/success.js.";
+    dl.querySelector("span").textContent = "App link not set";
+    dlNote.textContent = "Set APP_URL in assets/success.js.";
   }
 
   // The session id doubles as the customer's reference if they need support.

@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0e0e10">
 <title>Get Element 26 — Start training</title>
-<meta name="description" content="Get Element 26: a grade on every session, volume tracked across 38 muscle regions, and progression that comes from your own history. No email, no password, works offline.">
+<meta name="description" content="Get Element 26: a grade on every session, volume tracked across 36 muscle regions, and progression that comes from your own history. No email, no password, works offline.">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230e0e10'/%3E%3Crect x='9' y='9' width='82' height='82' rx='7' fill='none' stroke='%23c65d3a' stroke-width='4'/%3E%3Ctext x='20' y='34' font-family='monospace' font-size='17' fill='%23e8e6e1'%3E26%3C/text%3E%3Ctext x='50' y='72' font-family='monospace' font-size='40' font-weight='bold' fill='%23e8e6e1' text-anchor='middle'%3EFe%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230e0e10'/%3E%3Cg transform='translate(50 50) scale(.6016) translate(-50 -52.249)'%3E%3Cellipse cx='50' cy='92' rx='34' ry='6' fill='%23c98a4b' opacity='.3'/%3E%3Cg transform='translate(0 -4) rotate(-25 50 50)' fill='%23c98a4b'%3E%3Crect x='26' y='44' width='48' height='12'/%3E%3Cpolygon points='26,26 44,38 44,62 26,74 8,62 8,38'/%3E%3Cpolygon points='74,26 92,38 92,62 74,74 56,62 56,38'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,14 +16,28 @@
 </head>
 <body>
 
+<!-- THE MARK, defined once and reused by <use>: the same glyph the app defines
+     as #e26-mark, so the site and the product cannot drift apart. Two hexagonal
+     plates on a tilted bar over a ground-contact ellipse, all in currentColor. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="e26-mark" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="92" rx="34" ry="6" fill="currentColor" opacity="0.3"></ellipse>
+    <g transform="translate(0 -4) rotate(-25 50 50)">
+      <rect x="26" y="44" width="48" height="12" fill="currentColor"></rect>
+      <polygon points="26,26 44,38 44,62 26,74 8,62 8,38" fill="currentColor"></polygon>
+      <polygon points="74,26 92,38 92,62 74,74 56,62 56,38" fill="currentColor"></polygon>
+    </g>
+  </symbol>
+</svg>
+
 <div class="grain" aria-hidden="true"></div>
 
 <!-- ============================ HEADER ============================ -->
 <header id="hdr">
   <div class="wrap hd">
     <a class="brand" href="index.html" aria-label="Element 26, home">
-      <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
-      <span class="wm">Element&nbsp;26</span>
+      <svg class="mk" aria-hidden="true"><use href="#e26-mark"></use></svg>
+      <span class="wm">Element&nbsp;<em>26</em></span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Main">
@@ -74,12 +88,12 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
         </a>
 
-        <p class="plan-note">Pay once &middot; Download the file &middot; No email, no password</p>
+        <p class="plan-note">Pay once &middot; Open it &middot; No email, no password</p>
 
         <ul class="assure">
           <li><span class="tick" aria-hidden="true">✓</span> No subscription, ever — the price is the whole price</li>
-          <li><span class="tick" aria-hidden="true">✓</span> Yours as a file — it can't be switched off remotely</li>
-          <li><span class="tick" aria-hidden="true">✓</span> Works offline — the gym basement is the normal case</li>
+          <li><span class="tick" aria-hidden="true">✓</span> Your log lives on your device, not on a server you rent</li>
+          <li><span class="tick" aria-hidden="true">✓</span> Installs to your home screen and runs offline</li>
           <li><span class="tick" aria-hidden="true">✓</span> Your log is never rewritten by anything</li>
           <li><span class="tick" aria-hidden="true">✓</span> Export your whole history whenever you want</li>
         </ul>
@@ -89,10 +103,14 @@
         <h2>Everything is included</h2>
         <ul class="includes">
           <li><b>Session grading</b> Every workout scored against the last time you did the same lifts, with the one change worth making.</li>
-          <li><b>The muscle map</b> All 38 regions, counted in hard sets per week against MEV, MAV and MRV.</li>
+          <li><b>The muscle map</b> All 36 regions, counted in hard sets per week against MEV, MAV and MRV, adjusted for your training age.</li>
           <li><b>Progression from your history</b> Load suggestions, stall detection, estimated 1RM, and PRs caught as they happen.</li>
           <li><b>Rest, timed and judged</b> The stopwatch runs itself, and short rests show up in the grade.</li>
-          <li><b>Warm-ups and supersets</b> Generated from your working load, handled in the same rows.</li>
+          <li><b>Voice logging</b> Say the weight and reps and they land in the row, hands free.</li>
+          <li><b>Session-only swaps</b> When the machine is taken, train the version you can reach without editing the plan.</li>
+          <li><b>Deloads on the evidence</b> Offered from your check-ins, your RPE and your loads, not just the calendar.</li>
+          <li><b>Several profiles</b> You, plus anyone you coach, each with their own log and sync.</li>
+          <li><b>Warm-ups and set techniques</b> Ramps from your working load; supersets, dropsets and weaker-side caps in the same rows.</li>
           <li><b>Reports worth printing</b> Your programme or your full history, as a document for a coach or physio.</li>
           <li><b>The glossary</b> Every technical term underlined, with a plain-English entry behind it.</li>
           <li><b>An account that asks for nothing</b> A name gets you an ID and a recovery key. That's the whole setup.</li>
@@ -124,17 +142,17 @@
 
       <details class="q rv">
         <summary>What exactly do I get?</summary>
-        <div class="a"><p>One file. Element 26 is a single HTML file that runs in any browser — open it from your computer, or open it once on your phone and add it to your home screen. There's nothing to install and no app store involved.</p></div>
+        <div class="a"><p>The app itself. Element 26 runs in your browser and installs to your home screen, where it opens full-screen with its own icon and works offline. There's no app store, no review queue, and no separate download per platform.</p></div>
       </details>
 
       <details class="q rv">
         <summary>What happens right after I pay?</summary>
-        <div class="a"><p>You go straight to a download page and take the file. Then you open it, give it a name, and it hands you a User ID and a recovery key to save. That's the entire setup — there's no email confirmation to wait for.</p></div>
+        <div class="a"><p>You go straight through to the app. You give it a name, it hands you a User ID and a recovery key to save, and you're training. That's the entire setup — there's no email confirmation to wait for.</p></div>
       </details>
 
       <details class="q rv">
-        <summary>What if I lose the file?</summary>
-        <div class="a"><p>Get in touch and we'll send it again. It's worth keeping somewhere permanent, though — the file is the product, and your training data lives separately in the browser you opened it in.</p></div>
+        <summary>What if I lose my phone?</summary>
+        <div class="a"><p>Your User ID and recovery key are what identify your training, which is why the app tells you to save them at sign-up. Keep those and your history comes back; your whole account also exports as a file you can keep yourself.</p></div>
       </details>
 
       <details class="q rv">
@@ -163,8 +181,8 @@
     <div class="ft">
       <div class="ft-brand">
         <a class="brand" href="index.html">
-          <span class="tile" aria-hidden="true"><i>26</i><b>Fe</b></span>
-          <span class="wm">Element&nbsp;26</span>
+          <svg class="mk" aria-hidden="true"><use href="#e26-mark"></use></svg>
+          <span class="wm">Element&nbsp;<em>26</em></span>
         </a>
         <p>A training log that reads what you lift and tells you what to change.</p>
       </div>
@@ -195,7 +213,7 @@
     </div>
     <div class="ft-btm">
       <span>&copy; <span id="yr">2026</span> Element 26</span>
-      <span>Fe &middot; 26 &middot; 55.845 u</span>
+      <span>Element 26</span>
     </div>
   </div>
 </footer>

@@ -1,8 +1,8 @@
 /* ============================================================================
    ELEMENT 26 — promotional site
 
-   Palette and geometry come from the app: near-monochrome graphite with one
-   saturated accent (iron oxide) that marks the primary action and nothing else.
+   Palette, mark and geometry come from the app: near-monochrome graphite with
+   one saturated accent (copper) that marks the primary action and nothing else.
 
    TYPE IS SPLIT BY JOB, and this is the whole system:
      • Archivo, 800/900, for display. Heavy, tight, mostly uppercase — it is the
@@ -21,10 +21,10 @@
   --dim:#9b9892;
   --faint:#6f6d69;
 
-  --acc:#c65d3a;                     /* iron oxide */
-  --acc-hi:#e07a52;
-  --acc-soft:rgba(198,93,58,.14);
-  --acc-line:rgba(198,93,58,.42);
+  --acc:#c98a4b;                     /* copper — the app's mark colour */
+  --acc-hi:#e0a463;
+  --acc-soft:rgba(201,138,75,.14);
+  --acc-line:rgba(201,138,75,.42);
 
   --chest:#d1584f; --back:#4f7cc9; --arms:#c99a34;
   --shoulders:#4a9358; --legs:#ddd8cc;
@@ -105,7 +105,7 @@ section{padding:clamp(66px,9vw,120px) 0;position:relative}
   font:700 12.5px/1 var(--disp);text-transform:uppercase;letter-spacing:.08em;
   cursor:pointer;transition:transform .14s ease,box-shadow .3s ease,filter .2s ease;
 }
-.btn:hover{filter:brightness(1.08);box-shadow:0 0 34px -6px rgba(198,93,58,.75)}
+.btn:hover{filter:brightness(1.08);box-shadow:0 0 34px -6px rgba(201,138,75,.75)}
 .btn:active{transform:scale(.97)}
 /* A shine that crosses the face on hover. */
 .btn::after{
@@ -121,22 +121,23 @@ section{padding:clamp(66px,9vw,120px) 0;position:relative}
 
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
 
-/* ---------- the periodic tile ------------------------------------------- */
-.tile{
-  position:relative;flex:none;overflow:hidden;
-  display:grid;grid-template-rows:auto 1fr;align-items:center;
-  padding:2px 0 1px;
-  border:2px solid var(--acc);border-radius:var(--r-sm);
-  background:var(--bg);
+/* ---------- the brand mark ----------------------------------------------
+   Two hexagonal plates on a tilted bar over a ground-contact ellipse — the same
+   glyph the app defines once as #e26-mark and <use>s everywhere. Drawn in
+   currentColor so one colour rule decides the shade, and set bare rather than
+   inside a tile: at header size the glyph and the wordmark should carry the same
+   visual weight, instead of one being a badge for the other. */
+.mk{
+  width:var(--mk,28px);height:var(--mk,28px);flex:none;display:block;overflow:visible;
+  color:var(--acc);filter:drop-shadow(0 0 6px rgba(201,138,75,.32));
 }
-.tile i{
-  justify-self:start;padding-left:4px;font-style:normal;
-  font:400 var(--tile-z,9px)/1 var(--mono);color:var(--dim);
+/* The wordmark. `.wm` is the class the markup actually carries, so the rules hang
+   off it directly — scoping them to a wrapper left the <em> at the browser's
+   default italic and the wrong colour, which is the whole point of the element. */
+.wm{
+  font:800 15px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase;color:var(--text);
 }
-.tile b{
-  justify-self:center;align-self:center;
-  font:600 var(--tile-sym,20px)/1 var(--mono);color:var(--text);
-}
+.wm em{font-style:normal;color:var(--acc)}
 
 /* ---------- header ------------------------------------------------------ */
 header{
@@ -150,11 +151,10 @@ header.stuck{border-bottom-color:var(--line)}
 #prog{
   position:absolute;left:0;bottom:-1px;height:2px;width:0;
   background:linear-gradient(90deg,var(--acc),var(--acc-hi));
-  box-shadow:0 0 12px rgba(198,93,58,.8);
+  box-shadow:0 0 12px rgba(201,138,75,.8);
 }
 .hd{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px}
 .brand{display:flex;align-items:center;gap:11px}
-.brand .tile{width:32px;height:32px;--tile-sym:15px;--tile-z:8px;border-width:1.5px}
 .brand .wm{font:800 15px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase}
 .nav{display:flex;align-items:center;gap:4px}
 .nav a{
@@ -205,7 +205,7 @@ header.stuck{border-bottom-color:var(--line)}
 .hero .glow{
   position:absolute;left:50%;top:-340px;
   width:1150px;height:800px;transform:translateX(-50%);
-  background:radial-gradient(ellipse at center,rgba(198,93,58,.17),transparent 66%);
+  background:radial-gradient(ellipse at center,rgba(201,138,75,.17),transparent 66%);
   pointer-events:none;animation:drift 15s ease-in-out infinite alternate;
 }
 @keyframes drift{
@@ -234,7 +234,7 @@ header.stuck{border-bottom-color:var(--line)}
   width:6px;height:6px;border-radius:50%;background:var(--acc);
   box-shadow:0 0 0 3px var(--acc-soft);animation:pulseDot 2.4s ease-in-out infinite;
 }
-@keyframes pulseDot{50%{box-shadow:0 0 0 7px rgba(198,93,58,0)}}
+@keyframes pulseDot{50%{box-shadow:0 0 0 7px rgba(201,138,75,0)}}
 
 /* THE HEADLINE. Archivo 900, tight and set solid — a plate stencil, not a
    terminal. Each line is masked and lifted in on load. */
@@ -367,12 +367,12 @@ header.stuck{border-bottom-color:var(--line)}
   border:1.5px dashed var(--acc-line);
   background:
     repeating-linear-gradient(135deg,
-      rgba(198,93,58,.05) 0 10px, transparent 10px 20px),
+      rgba(201,138,75,.05) 0 10px, transparent 10px 20px),
     var(--card);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
   text-align:center;padding:20px;
 }
-.shot-slot .tile{width:46px;height:46px;--tile-sym:20px;--tile-z:10px;margin-bottom:6px}
+.shot-slot .mk{--mk:44px;margin:0 auto 6px}
 .shot-slot b{
   font:800 15px/1.2 var(--disp);text-transform:uppercase;letter-spacing:.02em;color:var(--text);
 }
@@ -481,7 +481,7 @@ header.stuck{border-bottom-color:var(--line)}
 .cell::before{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
   transition:opacity .3s ease;
-  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(198,93,58,.13),transparent 68%);
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(201,138,75,.13),transparent 68%);
 }
 .cell:hover::before{opacity:1}
 /* Corner brackets, borrowed from the app's frame motif. */
@@ -546,7 +546,7 @@ header.stuck{border-bottom-color:var(--line)}
 .col.mine{border-color:var(--acc-line)}
 .col-h{display:flex;align-items:center;gap:11px;padding:19px 20px;border-bottom:1px solid var(--line)}
 .col.mine .col-h{background:linear-gradient(180deg,var(--acc-soft),transparent)}
-.col-h .tile{width:30px;height:30px;--tile-sym:13px;--tile-z:7px;border-width:1.5px}
+.col-h .mk{--mk:28px}
 .col-h .ico{
   width:30px;height:30px;border-radius:var(--r-sm);display:grid;place-items:center;
   border:1.5px solid var(--faint);color:var(--faint);
@@ -687,7 +687,7 @@ header.stuck{border-bottom-color:var(--line)}
 .cta{text-align:center;position:relative;overflow:hidden}
 .cta .glow{
   position:absolute;left:50%;top:50%;width:960px;height:640px;transform:translate(-50%,-50%);
-  background:radial-gradient(ellipse at center,rgba(198,93,58,.15),transparent 68%);
+  background:radial-gradient(ellipse at center,rgba(201,138,75,.15),transparent 68%);
   pointer-events:none;animation:drift2 13s ease-in-out infinite alternate;
 }
 @keyframes drift2{
@@ -701,11 +701,7 @@ header.stuck{border-bottom-color:var(--line)}
   opacity:.028;pointer-events:none;user-select:none;letter-spacing:-.04em;
 }
 .cta .wrap{z-index:1}
-.cta .tile{width:78px;height:78px;--tile-sym:33px;--tile-z:12px;margin:0 auto 30px;padding-bottom:14px}
-.cta .tile em{
-  position:absolute;left:0;right:0;bottom:6px;text-align:center;
-  font-style:normal;font:400 9px/1 var(--mono);color:var(--faint);
-}
+.cta .mk{--mk:76px;margin:0 auto 30px}
 .cta h2{font-size:clamp(32px,5.4vw,62px);margin-bottom:20px;letter-spacing:-.025em;line-height:.98}
 .cta p{color:var(--dim);max-width:48ch;margin:0 auto 34px;font-size:16.5px}
 .cta .hero-note{margin-top:28px}
@@ -753,7 +749,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--car
 .buy{padding-top:clamp(52px,7vw,88px);overflow:hidden}
 .buy .glow{
   position:absolute;left:50%;top:-320px;width:1100px;height:760px;transform:translateX(-50%);
-  background:radial-gradient(ellipse at center,rgba(198,93,58,.16),transparent 66%);
+  background:radial-gradient(ellipse at center,rgba(201,138,75,.16),transparent 66%);
   pointer-events:none;animation:drift 15s ease-in-out infinite alternate;
 }
 .buy .wrap{z-index:1}
